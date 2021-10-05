@@ -1,6 +1,7 @@
 package model;
 
 public class Proveedor {
+	
 	private int idProveedor;
 	private String nombreProveedor;
 	private String direccionProveedor;
@@ -45,6 +46,7 @@ public class Proveedor {
 	public void setPersonaContactoProveedor(String personaContactoProveedor) {
 		this.personaContactoProveedor = personaContactoProveedor;
 	}
+	
 	
 	
 

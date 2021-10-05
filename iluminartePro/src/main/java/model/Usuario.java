@@ -6,27 +6,27 @@ public class Usuario {
 	private String nombreUsuario;
 	private String apellidoUsuario;
 	private String contrasenaUsuario;
-	private String numeroIdentificacionUsuario;
-	private String direccionUsuario;
+	private String numerodeIdentificacionUsuario;
+	private String direecionUsuario;
 	private String telefonoUsuario;
 	private String correoUsuario;
 	private int estadoUsuario;
-	private int idTipoDocumentoFK;
+	private int idTipodeDocumentoFK;
 	private int idRolFK;
 	public Usuario(int idUsuario, String nombreUsuario, String apellidoUsuario, String contrasenaUsuario,
-			String numeroIdentificacionUsuario, String direccionUsuario, String telefonoUsuario, String correoUsuario,
-			int estadoUsuario, int idTipoDocumentoFK, int idRolFK) {
+			String numerodeIdentificacionUsuario, String direecionUsuario, String telefonoUsuario, String correoUsuario,
+			int estadoUsuario, int idTipodeDocumentoFK, int idRolFK) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nombreUsuario = nombreUsuario;
 		this.apellidoUsuario = apellidoUsuario;
 		this.contrasenaUsuario = contrasenaUsuario;
-		this.numeroIdentificacionUsuario = numeroIdentificacionUsuario;
-		this.direccionUsuario = direccionUsuario;
+		this.numerodeIdentificacionUsuario = numerodeIdentificacionUsuario;
+		this.direecionUsuario = direecionUsuario;
 		this.telefonoUsuario = telefonoUsuario;
 		this.correoUsuario = correoUsuario;
 		this.estadoUsuario = estadoUsuario;
-		this.idTipoDocumentoFK = idTipoDocumentoFK;
+		this.idTipodeDocumentoFK = idTipodeDocumentoFK;
 		this.idRolFK = idRolFK;
 	}
 	public int getIdUsuario() {
@@ -53,17 +53,17 @@ public class Usuario {
 	public void setContrasenaUsuario(String contrasenaUsuario) {
 		this.contrasenaUsuario = contrasenaUsuario;
 	}
-	public String getNumeroIdentificacionUsuario() {
-		return numeroIdentificacionUsuario;
+	public String getNumerodeIdentificacionUsuario() {
+		return numerodeIdentificacionUsuario;
 	}
-	public void setNumeroIdentificacionUsuario(String numeroIdentificacionUsuario) {
-		this.numeroIdentificacionUsuario = numeroIdentificacionUsuario;
+	public void setNumerodeIdentificacionUsuario(String numerodeIdentificacionUsuario) {
+		this.numerodeIdentificacionUsuario = numerodeIdentificacionUsuario;
 	}
-	public String getDireccionUsuario() {
-		return direccionUsuario;
+	public String getDireecionUsuario() {
+		return direecionUsuario;
 	}
-	public void setDireccionUsuario(String direccionUsuario) {
-		this.direccionUsuario = direccionUsuario;
+	public void setDireecionUsuario(String direecionUsuario) {
+		this.direecionUsuario = direecionUsuario;
 	}
 	public String getTelefonoUsuario() {
 		return telefonoUsuario;
@@ -83,11 +83,11 @@ public class Usuario {
 	public void setEstadoUsuario(int estadoUsuario) {
 		this.estadoUsuario = estadoUsuario;
 	}
-	public int getIdTipoDocumentoFK() {
-		return idTipoDocumentoFK;
+	public int getIdTipodeDocumentoFK() {
+		return idTipodeDocumentoFK;
 	}
-	public void setIdTipoDocumentoFK(int idTipoDocumentoFK) {
-		this.idTipoDocumentoFK = idTipoDocumentoFK;
+	public void setIdTipodeDocumentoFK(int idTipodeDocumentoFK) {
+		this.idTipodeDocumentoFK = idTipodeDocumentoFK;
 	}
 	public int getIdRolFK() {
 		return idRolFK;

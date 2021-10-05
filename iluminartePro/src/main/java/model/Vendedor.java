@@ -6,11 +6,11 @@ public class Vendedor extends Usuario{
 	private String tipoVendedor;
 	private Usuario idUsuarioFK;
 	public Vendedor(int idUsuario, String nombreUsuario, String apellidoUsuario, String contrasenaUsuario,
-			String numeroIdentificacionUsuario, String direccionUsuario, String telefonoUsuario, String correoUsuario,
-			int estadoUsuario, int idTipoDocumentoFK, int idRolFK, int idVendedor, String tipoVendedor,
+			String numerodeIdentificacionUsuario, String direecionUsuario, String telefonoUsuario, String correoUsuario,
+			int estadoUsuario, int idTipodeDocumentoFK, int idRolFK, int idVendedor, String tipoVendedor,
 			Usuario idUsuarioFK) {
-		super(idUsuario, nombreUsuario, apellidoUsuario, contrasenaUsuario, numeroIdentificacionUsuario,
-				direccionUsuario, telefonoUsuario, correoUsuario, estadoUsuario, idTipoDocumentoFK, idRolFK);
+		super(idUsuario, nombreUsuario, apellidoUsuario, contrasenaUsuario, numerodeIdentificacionUsuario,
+				direecionUsuario, telefonoUsuario, correoUsuario, estadoUsuario, idTipodeDocumentoFK, idRolFK);
 		this.idVendedor = idVendedor;
 		this.tipoVendedor = tipoVendedor;
 		this.idUsuarioFK = idUsuarioFK;
@@ -33,7 +33,8 @@ public class Vendedor extends Usuario{
 	public void setIdUsuarioFK(Usuario idUsuarioFK) {
 		this.idUsuarioFK = idUsuarioFK;
 	}
-
 	
+
+
 
 }

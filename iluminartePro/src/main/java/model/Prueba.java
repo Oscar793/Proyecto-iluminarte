@@ -1,12 +1,14 @@
 package model;
 
-public class Prueba {
+import java.sql.SQLException;
 
-	public static void main(String[] args) {
+public class prueba {
+
+	public static void main(String[] args) throws SQLException {
 		// TODO Auto-generated method stub
 		
 		Conexion con=new Conexion();
-		if(con.conectar()!=null) {
+		if(con.getConnection()!=null) {
 			System.out.println("Conexión establecida");
 		}
 		else {

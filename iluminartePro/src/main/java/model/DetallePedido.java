@@ -2,12 +2,15 @@ package model;
 
 public class DetallePedido {
 	
+
 	private int idDetallePedido;
+	private int cantidadDetallePedido;
 	private Pedido idPedidoFK;
 	private Producto idProductoFK;
-	public DetallePedido(int idDetallePedido, Pedido idPedidoFK, Producto idProductoFK) {
+	public DetallePedido(int idDetallePedido, int cantidadDetallePedido,Pedido idPedidoFK, Producto idProductoFK) {
 		super();
 		this.idDetallePedido = idDetallePedido;
+		this.cantidadDetallePedido = cantidadDetallePedido;
 		this.idPedidoFK = idPedidoFK;
 		this.idProductoFK = idProductoFK;
 	}
@@ -16,6 +19,12 @@ public class DetallePedido {
 	}
 	public void setIdDetallePedido(int idDetallePedido) {
 		this.idDetallePedido = idDetallePedido;
+	}
+	public int getCantidadDetallePedido() {
+		return cantidadDetallePedido;
+	}
+	public void setCantidadDetallePedido(int cantidadDetallePedido) {
+		this.cantidadDetallePedido = cantidadDetallePedido;
 	}
 	public Pedido getIdPedidoFK() {
 		return idPedidoFK;
@@ -29,7 +38,8 @@ public class DetallePedido {
 	public void setIdProductoFK(Producto idProductoFK) {
 		this.idProductoFK = idProductoFK;
 	}
+	
+	
 
-	
-	
+
 }

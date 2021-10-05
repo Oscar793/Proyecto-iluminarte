@@ -1,19 +1,20 @@
 package model;
 
-public class Cliente extends Usuario{
-
-	private int idCliente;
+public class Cliente  extends Usuario {
+	
+	private int idCliente;	
 	private Usuario idUsuarioFK;
-	private Divipola idMunicipioDivipolaFK;
+	private Divipola idMubicipioFK;
+	
 	public Cliente(int idUsuario, String nombreUsuario, String apellidoUsuario, String contrasenaUsuario,
-			String numeroIdentificacionUsuario, String direccionUsuario, String telefonoUsuario, String correoUsuario,
-			int estadoUsuario, int idTipoDocumentoFK, int idRolFK, int idCliente, Usuario idUsuarioFK,
-			Divipola idMunicipioDivipolaFK) {
-		super(idUsuario, nombreUsuario, apellidoUsuario, contrasenaUsuario, numeroIdentificacionUsuario,
-				direccionUsuario, telefonoUsuario, correoUsuario, estadoUsuario, idTipoDocumentoFK, idRolFK);
+			String numerodeIdentificacionUsuario, String direecionUsuario, String telefonoUsuario, String correoUsuario,
+			int estadoUsuario, int idTipodeDocumentoFK, int idRolFK, int idCliente, Usuario idUsuarioFK,
+			Divipola idMubicipioFK) {
+		super(idUsuario, nombreUsuario, apellidoUsuario, contrasenaUsuario, numerodeIdentificacionUsuario,
+				direecionUsuario, telefonoUsuario, correoUsuario, estadoUsuario, idTipodeDocumentoFK, idRolFK);
 		this.idCliente = idCliente;
 		this.idUsuarioFK = idUsuarioFK;
-		this.idMunicipioDivipolaFK = idMunicipioDivipolaFK;
+		this.idMubicipioFK = idMubicipioFK;
 	}
 	public int getIdCliente() {
 		return idCliente;
@@ -27,12 +28,15 @@ public class Cliente extends Usuario{
 	public void setIdUsuarioFK(Usuario idUsuarioFK) {
 		this.idUsuarioFK = idUsuarioFK;
 	}
-	public Divipola getIdMunicipioDivipolaFK() {
-		return idMunicipioDivipolaFK;
+	public Divipola getIdMubicipioFK() {
+		return idMubicipioFK;
 	}
-	public void setIdMunicipioDivipolaFK(Divipola idMunicipioDivipolaFK) {
-		this.idMunicipioDivipolaFK = idMunicipioDivipolaFK;
+	public void setIdMubicipioFK(Divipola idMubicipioFK) {
+		this.idMubicipioFK = idMubicipioFK;
 	}
+	
+	
+	
 	
 	
 }

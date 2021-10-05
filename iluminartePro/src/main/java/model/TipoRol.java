@@ -1,14 +1,12 @@
 package model;
 
 public class TipoRol {
-
-	private int idRol;
-	private String nombreRol;
 	
-	public TipoRol() {
+	private int idRol;	
+	private String nombreRol;
+public TipoRol() {
 		
 	}
-	
 	public TipoRol(int idRol, String nombreRol) {
 		super();
 		this.idRol = idRol;
@@ -21,11 +19,12 @@ public class TipoRol {
 		this.idRol = idRol;
 	}
 	public String getNombreRol() {
-		return nombreRol;
+		return nombreRol; 
 	}
 	public void setNombreRol(String nombreRol) {
 		this.nombreRol = nombreRol;
 	}
+	 
 	
-	
+
 }

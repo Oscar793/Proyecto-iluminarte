@@ -1,8 +1,8 @@
 package model;
 
 public class TipoDocumento {
-
-	private int idTipoDocumento;
+	
+	private int idTipoDocumento;	
 	private String nombreTipoDocumento;
 	public TipoDocumento(int idTipoDocumento, String nombreTipoDocumento) {
 		super();
@@ -20,6 +20,9 @@ public class TipoDocumento {
 	}
 	public void setNombreTipoDocumento(String nombreTipoDocumento) {
 		this.nombreTipoDocumento = nombreTipoDocumento;
-	}
+	}	
 	
+	
+	
+
 }

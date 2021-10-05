@@ -4,18 +4,15 @@ public class Pago {
 
 	private int idPago;
 	private String estadoPago;
-	private String tipoPago;
-	private Double valorPago;
-	private Double porcentajeIvaPago;
+	private Double tipoPago;
+	private Double pocentajeIvaPago;
 	private Pedido idPedidoFK;
-	public Pago(int idPago, String estadoPago, String tipoPago, Double valorPago, Double porcentajeIvaPago,
-			Pedido idPedidoFK) {
+	public Pago(int idPago, String estadoPago, Double tipoPago, Double pocentajeIvaPago, Pedido idPedidoFK) {
 		super();
 		this.idPago = idPago;
 		this.estadoPago = estadoPago;
 		this.tipoPago = tipoPago;
-		this.valorPago = valorPago;
-		this.porcentajeIvaPago = porcentajeIvaPago;
+		this.pocentajeIvaPago = pocentajeIvaPago;
 		this.idPedidoFK = idPedidoFK;
 	}
 	public int getIdPago() {
@@ -30,23 +27,17 @@ public class Pago {
 	public void setEstadoPago(String estadoPago) {
 		this.estadoPago = estadoPago;
 	}
-	public String getTipoPago() {
+	public Double getTipoPago() {
 		return tipoPago;
 	}
-	public void setTipoPago(String tipoPago) {
+	public void setTipoPago(Double tipoPago) {
 		this.tipoPago = tipoPago;
 	}
-	public Double getValorPago() {
-		return valorPago;
+	public Double getPocentajeIvaPago() {
+		return pocentajeIvaPago;
 	}
-	public void setValorPago(Double valorPago) {
-		this.valorPago = valorPago;
-	}
-	public Double getPorcentajeIvaPago() {
-		return porcentajeIvaPago;
-	}
-	public void setPorcentajeIvaPago(Double porcentajeIvaPago) {
-		this.porcentajeIvaPago = porcentajeIvaPago;
+	public void setPocentajeIvaPago(Double pocentajeIvaPago) {
+		this.pocentajeIvaPago = pocentajeIvaPago;
 	}
 	public Pedido getIdPedidoFK() {
 		return idPedidoFK;
@@ -54,6 +45,7 @@ public class Pago {
 	public void setIdPedidoFK(Pedido idPedidoFK) {
 		this.idPedidoFK = idPedidoFK;
 	}
+	
 	
 	
 }

@@ -3,16 +3,17 @@ package model;
 import java.util.Date;
 
 public class Pedido {
-
+	
 	private int idPedido;
 	private String descripcionPedido;
 	private String estadoPedido;
-	private Date fechaPedido;
+	private  Date fechaPedido;
 	private int totalPedido;
+	private boolean realizaCompraPedido;
 	private Cliente idClienteFK;
 	private Vendedor idVendedorFK;
 	public Pedido(int idPedido, String descripcionPedido, String estadoPedido, Date fechaPedido, int totalPedido,
-			Cliente idClienteFK, Vendedor idVendedorFK) {
+			boolean realizaCompraPedido,Cliente idClienteFK, Vendedor idVendedorFK) {
 		super();
 		this.idPedido = idPedido;
 		this.descripcionPedido = descripcionPedido;
@@ -52,6 +53,14 @@ public class Pedido {
 	public void setTotalPedido(int totalPedido) {
 		this.totalPedido = totalPedido;
 	}
+	
+	
+	public boolean isRealizaCompraPedido() {
+		return realizaCompraPedido;
+	}
+	public void setRealizaCompraPedido(boolean realizaCompraPedido) {
+		this.realizaCompraPedido = realizaCompraPedido;
+	}
 	public Cliente getIdClienteFK() {
 		return idClienteFK;
 	}
@@ -65,6 +74,9 @@ public class Pedido {
 		this.idVendedorFK = idVendedorFK;
 	}
 	
+
 	
+
 	
+
 }

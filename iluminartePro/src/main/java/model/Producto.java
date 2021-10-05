@@ -1,5 +1,6 @@
 package model;
 
+
 public class Producto {
 	
 	private int idProducto;
@@ -7,18 +8,22 @@ public class Producto {
 	private Double precioProducto;
 	private String descripcionProducto;
 	private String imagenProducto;
-	private Categoria idCategoriaFK;
-	private Proveedor idProveedorFK;
+	private Categoria idCategoriaPK;
+	private Proveedor idProveedorPK;
 	public Producto(int idProducto, String nombreProducto, Double precioProducto, String descripcionProducto,
-			String imagenProducto, Categoria idCategoriaFK, Proveedor idProveedorFK) {
+			String imagenProducto, Categoria idCategoriaPK, Proveedor idProveedorPK) {
 		super();
 		this.idProducto = idProducto;
 		this.nombreProducto = nombreProducto;
 		this.precioProducto = precioProducto;
 		this.descripcionProducto = descripcionProducto;
 		this.imagenProducto = imagenProducto;
-		this.idCategoriaFK = idCategoriaFK;
-		this.idProveedorFK = idProveedorFK;
+		this.idCategoriaPK = idCategoriaPK;
+		this.idProveedorPK = idProveedorPK;
+	}
+	
+	public Producto() {
+		// TODO Auto-generated constructor stub
 	}
 	public int getIdProducto() {
 		return idProducto;
@@ -50,17 +55,17 @@ public class Producto {
 	public void setImagenProducto(String imagenProducto) {
 		this.imagenProducto = imagenProducto;
 	}
-	public Categoria getIdCategoriaFK() {
-		return idCategoriaFK;
+	public Categoria getIdCategoriaPK() {
+		return idCategoriaPK;
 	}
-	public void setIdCategoriaFK(Categoria idCategoriaFK) {
-		this.idCategoriaFK = idCategoriaFK;
+	public void setIdCategoriaPK(Categoria idCategoriaPK) {
+		this.idCategoriaPK = idCategoriaPK;
 	}
-	public Proveedor getIdProveedorFK() {
-		return idProveedorFK;
+	public Proveedor getIdProveedorPK() {
+		return idProveedorPK;
 	}
-	public void setIdProveedorFK(Proveedor idProveedorFK) {
-		this.idProveedorFK = idProveedorFK;
+	public void setIdProveedorPK(Proveedor idProveedorPK) {
+		this.idProveedorPK = idProveedorPK;
 	}
 	
 	
