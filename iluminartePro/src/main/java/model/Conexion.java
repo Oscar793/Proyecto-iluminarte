@@ -69,35 +69,28 @@ public class Conexion {
 package model;
 
 import java.sql.Connection;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
-import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
-
+import java.sql.DriverManager;
 
 public class Conexion {
-	private static  BasicDataSource dataSource=null;
 	
-	private static DataSource getDataSource() {
-		if (dataSource==null) {
-			dataSource=new BasicDataSource();
-			dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-			dataSource.setUsername("root");
-			dataSource.setPassword("");
-			dataSource.setUrl("jdbc:mysql://localhost:3306/db_iluminarte");
-			dataSource.setInitialSize(20);
-			dataSource.setMaxIdle(15);
-			dataSource.setMaxTotal(20);		
+	//Declarar variables, atributos
+	private static final String bbdd="jdbc:mysql://localhost:3306/db_iluminarte";
+	private static final String usuario="root";
+	private static final String clave="";
+	private static Connection con;
+
+	public static Connection conectar() {
+		
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con=DriverManager.getConnection(bbdd,usuario,clave);
+			 System.out.println("Conexión Exitosa");
+		}catch(Exception e) {
+			System.out.println("Error de conexión a la base de datos "+e.getMessage().toString());			
 		}
-		return dataSource;
-	}
-	
-	public static Connection getConnection() throws SQLException{
-		return getDataSource().getConnection(); 
+		return con;
 	}
 }
-
 
 
 

@@ -7,20 +7,32 @@ public class Proveedor {
 	private String direccionProveedor;
 	private String telefonoProveedor;
 	private String personaContactoProveedor;
+	private boolean estadoProveedor;
+	
 	public Proveedor(int idProveedor, String nombreProveedor, String direccionProveedor, String telefonoProveedor,
-			String personaContactoProveedor) {
+			String personaContactoProveedor,Boolean estadoProveedor) {
 		super();
 		this.idProveedor = idProveedor;
 		this.nombreProveedor = nombreProveedor;
 		this.direccionProveedor = direccionProveedor;
 		this.telefonoProveedor = telefonoProveedor;
 		this.personaContactoProveedor = personaContactoProveedor;
+		this.estadoProveedor = estadoProveedor;
+	}
+	public Proveedor() {
+		// TODO Auto-generated constructor stub
 	}
 	public int getIdProveedor() {
 		return idProveedor;
 	}
 	public void setIdProveedor(int idProveedor) {
 		this.idProveedor = idProveedor;
+	}
+	public boolean getEstadoProveedor() {
+		return estadoProveedor;
+	}
+	public void setEstadoProveedor(boolean estadoProveedor) {
+		this.estadoProveedor = estadoProveedor;
 	}
 	public String getNombreProveedor() {
 		return nombreProveedor;

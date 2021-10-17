@@ -9,160 +9,153 @@ import java.util.Collection;
 import java.util.List;
 
 public class TipoRolDAO {
-	private Connection connection;
-	private PreparedStatement statement;
-	private boolean estadoOperacion;
-	
-	// Guardar
-		public boolean guardar(TipoRol tiporol) throws SQLException {
-			String sql=null;
-			estadoOperacion=false;
-			connection=obtenerConexion(); 
+		/*Se requieren atributos para realizar las operaciones*/
 			
-			try {
-				connection.setAutoCommit(false);
-				sql="INSERT INTO tiporol (idRol, nombreRol) VALUES (?,?)";
-				statement=connection.prepareStatement(sql);
-				
-				statement.setString(1,null);
-				statement.setString(2, tiporol.getNombreRol());		 
-				
-				
-				estadoOperacion=statement.executeUpdate()>0;
-				
-				connection.commit();
-				statement.close();
-				connection.close();
-				
-			} catch (SQLException e) {
-				connection.rollback();	
-				e.printStackTrace();
-			}
-					
+			Connection con; //objeto de conexión
+			PreparedStatement ps; //objeto para sentencias preparadas
+			ResultSet rs; //objeto para almacenar consultas
+			String sql=null; //variable para guardar sentencias
 			
-			return estadoOperacion;
-		}
-		
-		
-		// Editar producto
-		public boolean editar(TipoRol tiporol) throws SQLException {
-			String sql=null;
-			estadoOperacion=false;
-			connection=obtenerConexion();
-			try {
+			Conexion c=new Conexion();
+			
+			int r;
+
+			
+			public List listarRoles() throws Exception{
 				
-				connection.setAutoCommit(false);
-				sql="UPDATE tiporol SET nombreRol=? WHERE idRol=?";
-				statement=connection.prepareStatement(sql);
+				List<TipoRol> roles=new ArrayList<>();
+				sql="SELECT *FROM tiporol";
 				
-				statement.setString(1, tiporol.getNombreRol());		
-				statement.setInt(2, tiporol.getIdRol());
-				
-				estadoOperacion=statement.executeUpdate()>0;
-				connection.commit();
-				statement.close();
-				connection.close();
-				
-					
-		}catch (SQLException e) {
-			connection.rollback();	
-			e.printStackTrace();
-		}	
-				
-			return estadoOperacion;
+				try {
+					con=c.conectar(); //abrir conexion
+					ps=con.prepareStatement(sql); //preparando la sentencia
+					//ejecutamos la consulta y guardamos en el objeto rs
+					rs=ps.executeQuery();
+					//procesamos el resultado de la consulta
+					while(rs.next()) {
+						TipoRol r=new TipoRol();
+						//Escribir en el setter de cada objeto
+						r.setIdRol(rs.getInt("idRol"));
+						r.setNombreRol(rs.getString("nombreRol"));
+						r.setEstadoRol(rs.getBoolean("estadoRol"));
+						
+						roles.add(r);
+					}
+					ps.close(); //cerrar sentencia
+					System.out.println("consulta exitosa");
+				}catch(Exception e) {
+					System.out.println("No existen roles definidos"+e.getMessage());
+				}finally {
+					con.close(); //cerrar conexión
+				}
+				return roles;
 			}
 			
+			public int registrarRol(TipoRol tiporol) throws SQLException {
+				sql="INSERT INTO tiporol (nombreRol,estadoRol) VALUES (?,?)";
+				try {
+					con=c.conectar();//abrir conexión
+					ps=con.prepareStatement(sql); //preparación
+					ps.setString(1, tiporol.getNombreRol());
+					ps.setBoolean(2, tiporol.getEstadoRol());
+					System.out.println(sql);
+					ps.executeUpdate();//Ejecucución sentencia
+					ps.close();//cerrar sentencia
+					System.out.println("Se registró un rol");
+					
+				}catch(Exception e) {
+					System.out.println("Error en el registro del rol "+e.getMessage());
+				}
+				finally {
+					con.close();
+				}
+				return r;
+			}
 			
-	      // Eliminar producto
-		  public boolean eliminar(TipoRol tiporol) throws SQLException {
-			    String sql=null;
-				estadoOperacion=false;
-				connection=obtenerConexion();
+			public void eliminarRol(int idRol) throws SQLException {
+				sql="DELETE FROM tiporol WHERE idRol="+idRol;
+				System.out.println(sql);
+				try {
+					con=c.conectar();
+					ps=con.prepareStatement(sql);
+					ps.executeUpdate();
+					ps.close();
+					System.out.println("Se eliminó el rol");
+				}catch(Exception e) {
+					System.out.println("Error en la eliminación del registro "+e.getMessage());
+				}
+				finally {
+					con.close();
+				}
+			}
+			
+			public TipoRol consultaporId(int idRol) throws SQLException {
+				TipoRol ro=new TipoRol();
+				sql="SELECT * from tiporol WHERE idRol="+idRol;
+				try {
+					con=c.conectar();
+					ps=con.prepareStatement(sql);
+					rs=ps.executeQuery();
+					
+					while(rs.next()) {
+						ro.setIdRol(rs.getInt("idRol"));
+						ro.setNombreRol(rs.getString("nombreRol"));
+						ro.setEstadoRol(rs.getBoolean("estadoRol"));
+						System.out.println("Se encontró el rol");
+						
+					}
+				}catch(Exception e) {
+					System.out.println("Error en la consulta del rol "+e.getMessage());
+				}
+				finally {
+					con.close();
+				}
+				
+				return ro;
+			}
+			
+			public int actualizarRol(TipoRol tiporol) throws SQLException {
+				sql="UPDATE tiporol SET nombreRol=?,estadoRol=? "+
+						"WHERE idRol="+tiporol.getIdRol();
 				try {
 					
-					connection.setAutoCommit(false);
-					sql="DELETE FROM tiporol WHERE idRol=?";
-					statement=connection.prepareStatement(sql);
+					con=c.conectar();//abrir conexión
+					ps=con.prepareStatement(sql); //preparación
+					ps.setString(1, tiporol.getNombreRol());
+					ps.setBoolean(2, tiporol.getEstadoRol());
 					
-					statement.setInt(1, tiporol.getIdRol());
-					
-					estadoOperacion=statement.executeUpdate()>0;
-					connection.commit();
-					statement.close();
-					connection.close();
-					
-						
-			}catch (SQLException e) {
-				connection.rollback();	
-				e.printStackTrace();
-			}	
-					
-				return estadoOperacion;
+					System.out.println(sql);
+					ps.executeUpdate();//Ejecucución sentencia
+					ps.close();//cerrar sentencia
+					System.out.println("Se actualizó un rol");
+				}catch(Exception e) {
+					System.out.println("Error en la actualización del rol "+e.getMessage());
 				}
-				
-		
-		  
-		  // Obtener lista de TipoRol
-	      public List<TipoRol> obtenerTipoRoles() throws SQLException{
-	    	 ResultSet resultSet=null;
-	    	 List<TipoRol> listaTipoRol=new ArrayList<>();
-	    	 
-	    	  String sql=null;
-			  estadoOperacion=false;
-			  connection=obtenerConexion();
-			  
-			  try {
-				  sql="SELECT * FROM tiporol";
-				  statement=connection.prepareStatement(sql);
-				  resultSet=statement.executeQuery(sql);
-				  while (resultSet.next()) {
-					  TipoRol p=new TipoRol();
-					  p.setIdRol(resultSet.getInt(1));
-					  p.setNombreRol(resultSet.getString(2));					  
-					  listaTipoRol.add(p);
-					  }
-				  				
-				}catch (SQLException e) {					
-					e.printStackTrace();
-					}	
-						
-					return listaTipoRol;
-					}
-		  
-		  
-	      // Obtener lista de producto
-	      public TipoRol obtenerTipoRol(int idRol) throws SQLException{ ResultSet resultSet=null;
-	      TipoRol p=new TipoRol();
-		 
-		  String sql=null;
-		  estadoOperacion=false;
-		  connection=obtenerConexion();
-		  
-		  try {
-			  sql="SELECT * FROM tiporol WHERE idRol =?";
-			  statement=connection.prepareStatement(sql);
-			  statement.setInt(1, idRol);
-			  
-			  resultSet=statement.executeQuery(sql);
-			  
-			  if (resultSet.next()) {
-				  
-				  p.setIdRol(resultSet.getInt(1));
-				  p.setNombreRol(resultSet.getString(2));				
-				  }
-			  				
-			}catch (SQLException e) {					
-				e.printStackTrace();
-				}	
-					
-				return p;
+				finally {
+					con.close();
 				}
-	 	
-	      
-		
-		  
-	      private Connection obtenerConexion() throws SQLException {
-	    	  return Conexion.getConnection();
-	      }
-	
-}
+				return r;
+			}
+			
+			public int cambiarEstado(TipoRol tiporol) throws SQLException {
+				sql="UPDATE tiporol SET estadoRol=? "+
+						"WHERE idRol="+tiporol.getIdRol();
+				try {
+					
+					con=c.conectar();//abrir conexión
+					ps=con.prepareStatement(sql); //preparación
+					ps.setBoolean(1, tiporol.getEstadoRol());
+					
+					System.out.println(sql);
+					ps.executeUpdate();//Ejecucución sentencia
+					ps.close();//cerrar sentencia
+					System.out.println("Se actualizó el estado del rol");
+				}catch(Exception e) {
+					System.out.println("Error en la actualización del estado rol "+e.getMessage());
+				}
+				finally {
+					con.close();
+				}
+				return r;
+			}			
+		}
