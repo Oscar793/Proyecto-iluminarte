@@ -5,13 +5,16 @@ public class Categoria {
 	private int idCategoria;
 	private String nombreCategoria;
 	private String descripcionCategoria;
-	private String estadoCategoria;
-	public Categoria(int idCategoria, String nombreCategoria, String descripcionCategoria, String estadoCategoria) {
+	private Boolean estadoCategoria;
+	public Categoria(int idCategoria, String nombreCategoria, String descripcionCategoria,Boolean estadoCategoria) {
 		super();
 		this.idCategoria = idCategoria;
 		this.nombreCategoria = nombreCategoria;
 		this.descripcionCategoria = descripcionCategoria;
 		this.estadoCategoria = estadoCategoria;
+	}
+	public Categoria() {
+		// TODO Auto-generated constructor stub
 	}
 	public int getIdCategoria() {
 		return idCategoria;
@@ -31,10 +34,10 @@ public class Categoria {
 	public void setDescripcionCategoria(String descripcionCategoria) {
 		this.descripcionCategoria = descripcionCategoria;
 	}
-	public String getEstadoCategoria() {
+	public Boolean getEstadoCategoria() {
 		return estadoCategoria;
 	}
-	public void setEstadoCategoria(String estadoCategoria) {
+	public void setEstadoCategoria(Boolean estadoCategoria) {
 		this.estadoCategoria = estadoCategoria;
 	}
 	

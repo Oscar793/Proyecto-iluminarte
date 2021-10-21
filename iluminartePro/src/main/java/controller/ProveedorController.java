@@ -200,13 +200,13 @@ public class ProveedorController extends HttpServlet {
 			ProveedorDAO rdao=new ProveedorDAO();
 			Proveedor r=new Proveedor();
 			
-			if(request.getParameter("id")!=null &&  request.getParameter("nombre")!=null && request.getParameter("direccion")!=null && request.getParameter("telefono")!=null && request.getParameter("persona")!=null && request.getParameter("estado")!=null ) {
+			if(request.getParameter("id")!=null &&  request.getParameter("nombre")!=null && request.getParameter("direccion")!=null && request.getParameter("telefono")!=null && request.getParameter("persona")!=null && request.getParameter("chkEstado")!=null ) {
 	        	r.setIdProveedor(Integer.parseInt(request.getParameter("id")));
 				r.setNombreProveedor(request.getParameter("nombre"));
 				r.setDireccionProveedor(request.getParameter("direccion"));
 				r.setTelefonoProveedor(request.getParameter("telefono"));
 				r.setPersonaContactoProveedor(request.getParameter("persona"));
-				r.setEstadoProveedor(Boolean.parseBoolean(request.getParameter("estado")));
+	
 	        }
 	        if(request.getParameter("chkEstado")!=null) {
 	        	r.setEstadoProveedor(true);

@@ -1,5 +1,9 @@
 <%@include file="header.jsp" %>
-  <div class="flex-fill flex-grow-1 ms-3">
+<div class="mdl-tabs__tab-bar">
+ 
+ <div class="mdl-cell mdl-cell--4-col-phone mdl-cell--8-col-tablet mdl-cell--8-col-desktop mdl-cell--2-offset-desktop">
+						<div class="full-width panel mdl-shadow--5dp">
+		
   
   <h1>Actualizar de Roles</h1>
   
@@ -27,6 +31,7 @@
   
   </form>
   </div> 
+</div>
 </div>
 
 

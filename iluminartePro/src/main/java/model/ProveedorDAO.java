@@ -12,7 +12,7 @@ import java.util.List;
 public class ProveedorDAO {
 	/*Se requieren atributos para realizar las operaciones*/
 	
-	Connection con; //objeto de conexión
+	Connection con; //objeto de conexiï¿½n
 	PreparedStatement ps; //objeto para sentencias preparadas
 	ResultSet rs; //objeto para almacenar consultas
 	String sql=null; //variable para guardar sentencias
@@ -50,7 +50,7 @@ public class ProveedorDAO {
 		}catch(Exception e) {
 			System.out.println("No existen proveedores"+e.getMessage());
 		}finally {
-			con.close(); //cerrar conexión
+			con.close(); //cerrar conexiï¿½n
 		}
 		return proveedor;
 	}
@@ -58,8 +58,8 @@ public class ProveedorDAO {
 	public int registrarProveedor(Proveedor proveedor) throws SQLException {
 		sql="INSERT INTO proveedor (nombreProveedor,direccionProveedor,telefonoProveedor,personaContactoProveedor,estadoProveedor) VALUES (?,?,?,?,?)";
 		try {
-			con=c.conectar();//abrir conexión
-			ps=con.prepareStatement(sql); //preparación
+			con=c.conectar();//abrir conexiï¿½n
+			ps=con.prepareStatement(sql); //preparaciï¿½n
 			ps.setString(1, proveedor.getNombreProveedor());
 			ps.setString(2, proveedor.getDireccionProveedor());
 			ps.setString(3, proveedor.getTelefonoProveedor());
@@ -67,9 +67,9 @@ public class ProveedorDAO {
 			ps.setBoolean(5, proveedor.getEstadoProveedor());
 			
 			System.out.println(sql);
-			ps.executeUpdate();//Ejecucución sentencia
+			ps.executeUpdate();//Ejecucuciï¿½n sentencia
 			ps.close();//cerrar sentencia
-			System.out.println("Se registró un proveedor");
+			System.out.println("Se registrï¿½ un proveedor");
 			
 		}catch(Exception e) {
 			System.out.println("Error en el registro del Proveedor"+e.getMessage());
@@ -88,9 +88,9 @@ public class ProveedorDAO {
 			ps=con.prepareStatement(sql);
 			ps.executeUpdate();
 			ps.close();
-			System.out.println("Se eliminó el proveedor");
+			System.out.println("Se eliminï¿½ el proveedor");
 		}catch(Exception e) {
-			System.out.println("Error en la eliminación del registro de Proveedor "+e.getMessage());
+			System.out.println("Error en la eliminaciï¿½n del registro de Proveedor "+e.getMessage());
 		}
 		finally {
 			con.close();
@@ -113,7 +113,7 @@ public class ProveedorDAO {
 				ro.setPersonaContactoProveedor(rs.getString("personaContactoProveedor"));
 				ro.setEstadoProveedor(rs.getBoolean("estadoProveedor"));
 				
-				System.out.println("Se encontró el proveedor");
+				System.out.println("Se encontrï¿½ el proveedor");
 				
 			}
 		}catch(Exception e) {
@@ -128,24 +128,25 @@ public class ProveedorDAO {
 	
 	public int actualizarProveedor(Proveedor proveedor) throws SQLException {
 		sql="UPDATE proveedor SET nombreProveedor=?,direccionProveedor=?, telefonoProveedor=?,personaContactoProveedor=?,estadoProveedor=?"+
-				"WHERE idProveedor="+proveedor.getIdProveedor();
+				" WHERE idProveedor="+proveedor.getIdProveedor();
 		try {
 			
-			con=c.conectar();//abrir conexión
-			ps=con.prepareStatement(sql); //preparación
+			con=c.conectar();//abrir conexiï¿½n
+			ps=con.prepareStatement(sql); //preparaciï¿½n
 			ps.setString(1, proveedor.getNombreProveedor());
 			ps.setString(2, proveedor.getDireccionProveedor());
 			ps.setString(3, proveedor.getTelefonoProveedor());
 			ps.setString(4, proveedor.getPersonaContactoProveedor());
 			ps.setBoolean(5, proveedor.getEstadoProveedor());
+	
 			
 			
 			System.out.println(sql);
-			ps.executeUpdate();//Ejecucución sentencia
+			ps.executeUpdate();//Ejecucuciï¿½n sentencia
 			ps.close();//cerrar sentencia
-			System.out.println("Se actualizó un proveedor");
+			System.out.println("Se actualizÃ³ un proveedor");
 		}catch(Exception e) {
-			System.out.println("Error en la actualización del proveedor "+e.getMessage());
+			System.out.println("Error en la actualizaciÃ³n del proveedor "+e.getMessage());
 		}
 		finally {
 			con.close();
@@ -158,16 +159,16 @@ public class ProveedorDAO {
 				"WHERE idProveedor="+proveedor.getIdProveedor();
 		try {
 			
-			con=c.conectar();//abrir conexión
-			ps=con.prepareStatement(sql); //preparación
+			con=c.conectar();//abrir conexiï¿½n
+			ps=con.prepareStatement(sql); //preparaciï¿½n
 			ps.setBoolean(1, proveedor.getEstadoProveedor());
 			
 			System.out.println(sql);
-			ps.executeUpdate();//Ejecucución sentencia
+			ps.executeUpdate();//Ejecucuciï¿½n sentencia
 			ps.close();//cerrar sentencia
-			System.out.println("Se actualizó el estado del proveedor");
+			System.out.println("Se actualizï¿½ el estado del proveedor");
 		}catch(Exception e) {
-			System.out.println("Error en la actualización del estado proveedor "+e.getMessage());
+			System.out.println("Error en la actualizaciï¿½n del estado proveedor "+e.getMessage());
 		}
 		finally {
 			con.close();
