@@ -44,14 +44,14 @@
         <c:if test="${proveedor.getEstadoProveedor() == true}">
            <a rol="button" 
            class="btn btn-danger btn-sm" 
-           onclick="cambiareproveedor(event,${proveedor.getIdProveedor()},${proveedor.getEstadoProveedor()})"> 
+           onclick="cambiare(event,${proveedor.getIdProveedor()},${proveedor.getEstadoProveedor()},'Proveedor')"> 
         Inactivar
         </a>
         </c:if>
         <c:if test="${proveedor.getEstadoProveedor() == false}">
             <a rol="button" 
             class="btn btn-success btn-sm" 
-            onclick="cambiareproveedor(event,${proveedor.getIdProveedor()},${proveedor.getEstadoProveedor()})">
+            onclick="cambiareproveedor(event,${proveedor.getIdProveedor()},${proveedor.getEstadoProveedor()},'Proveedor')">
         Activar
         </a>
         </c:if> 

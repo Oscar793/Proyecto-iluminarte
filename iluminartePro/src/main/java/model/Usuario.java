@@ -3,31 +3,35 @@ package model;
 public class Usuario {
 
 	private int idUsuario;
-	private String nombreUsuario;
-	private String apellidoUsuario;
-	private String contrasenaUsuario;
-	private String numerodeIdentificacionUsuario;
-	private String direecionUsuario;
-	private String telefonoUsuario;
-	private String correoUsuario;
-	private int estadoUsuario;
-	private int idTipodeDocumentoFK;
-	private int idRolFK;
+	private String nombreUsuario, apellidoUsuario,contrasenaUsuario,numerodeIdentificacionUsuario,direccionUsuario,
+	               telefonoUsuario,correoUsuario;
+	private Boolean estadoUsuario;
+	private TipoDocumento idTipodeDocumentoFK;
+	private TipoRol idRolFK;
 	public Usuario(int idUsuario, String nombreUsuario, String apellidoUsuario, String contrasenaUsuario,
-			String numerodeIdentificacionUsuario, String direecionUsuario, String telefonoUsuario, String correoUsuario,
-			int estadoUsuario, int idTipodeDocumentoFK, int idRolFK) {
+			String numerodeIdentificacionUsuario, String direccionUsuario, String telefonoUsuario, String correoUsuario,
+			boolean estadoUsuario, TipoDocumento idTipodeDocumentoFK, TipoRol idRolFK) {
 		super();
 		this.idUsuario = idUsuario;
 		this.nombreUsuario = nombreUsuario;
 		this.apellidoUsuario = apellidoUsuario;
 		this.contrasenaUsuario = contrasenaUsuario;
 		this.numerodeIdentificacionUsuario = numerodeIdentificacionUsuario;
-		this.direecionUsuario = direecionUsuario;
+		this.direccionUsuario = direccionUsuario;
 		this.telefonoUsuario = telefonoUsuario;
 		this.correoUsuario = correoUsuario;
 		this.estadoUsuario = estadoUsuario;
 		this.idTipodeDocumentoFK = idTipodeDocumentoFK;
 		this.idRolFK = idRolFK;
+	}
+	public String getDireccionUsuario() {
+		return direccionUsuario;
+	}
+	public void setDireccionUsuario(String direccionUsuario) {
+		this.direccionUsuario = direccionUsuario;
+	}
+	public Usuario() {
+		// TODO Auto-generated constructor stub
 	}
 	public int getIdUsuario() {
 		return idUsuario;
@@ -59,12 +63,7 @@ public class Usuario {
 	public void setNumerodeIdentificacionUsuario(String numerodeIdentificacionUsuario) {
 		this.numerodeIdentificacionUsuario = numerodeIdentificacionUsuario;
 	}
-	public String getDireecionUsuario() {
-		return direecionUsuario;
-	}
-	public void setDireecionUsuario(String direecionUsuario) {
-		this.direecionUsuario = direecionUsuario;
-	}
+
 	public String getTelefonoUsuario() {
 		return telefonoUsuario;
 	}
@@ -77,23 +76,24 @@ public class Usuario {
 	public void setCorreoUsuario(String correoUsuario) {
 		this.correoUsuario = correoUsuario;
 	}
-	public int getEstadoUsuario() {
+	public Boolean isEstadoUsuario() {
 		return estadoUsuario;
 	}
-	public void setEstadoUsuario(int estadoUsuario) {
+	public void setEstadoUsuario(Boolean estadoUsuario) {
 		this.estadoUsuario = estadoUsuario;
 	}
-	public int getIdTipodeDocumentoFK() {
+	public TipoDocumento getIdTipodeDocumentoFK() {
 		return idTipodeDocumentoFK;
 	}
-	public void setIdTipodeDocumentoFK(int idTipodeDocumentoFK) {
+	public void setIdTipodeDocumentoFK(TipoDocumento idTipodeDocumentoFK) {
 		this.idTipodeDocumentoFK = idTipodeDocumentoFK;
 	}
-	public int getIdRolFK() {
+	public TipoRol getIdRolFK() {
 		return idRolFK;
 	}
-	public void setIdRolFK(int idRolFK) {
+	public void setIdRolFK(TipoRol idRolFK) {
 		this.idRolFK = idRolFK;
 	}
+
 	
 }

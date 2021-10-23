@@ -1,6 +1,6 @@
-function borrar(e,cod){
+function borrar(e,cod,cont){
 	e.preventDefault();
-	console.log(cod);
+	console.log(cont);
 	Swal.fire({
 	  title: 'Esta seguro de eliminar este registro?',
 	  text: "Esta accion no se puede reversar!",
@@ -13,79 +13,7 @@ function borrar(e,cod){
 	}).then((result) => {
 	  if (result.isConfirmed) 
 		 {
-			window.setTimeout(function(){window.location.href = "TipoRolController?accion=chaoRol&id=" + cod},2000);
-			Swal.fire({
-			  position: 'top-end',
-			  icon: 'success',
-			  title: 'El registro ha sido borrado',
-			  showConfirmButton: false,
-			  timer: 1500
-			})
-
-          } else {
-                  Swal.fire(
-						'Cancelado', 
-						'Cancelaste la eliminacion',
-						'error');
-                 }
-	  
-	});
-	
-	
-};
-
-function borrarProveedor(e,cod){
-	e.preventDefault();
-	console.log(cod);
-	Swal.fire({
-	  title: 'Esta seguro de eliminar este registro?',
-	  text: "Esta accion no se puede reversar!",
-	  icon: 'warning',
-	  showCancelButton: true,
-	  confirmButtonColor: '#3085d6',
-	  cancelButtonColor: '#d33',
-	  confirmButtonText: 'Si, Borralo!',
-	  cancelButtonText: "No, Cancelar!",
-	}).then((result) => {
-	  if (result.isConfirmed) 
-		 {
-			window.setTimeout(function(){window.location.href = "ProveedorController?accion=chaoProveedor&id=" + cod},2000);
-			Swal.fire({
-			  position: 'top-end',
-			  icon: 'success',
-			  title: 'El registro ha sido borrado',
-			  showConfirmButton: false,
-			  timer: 1500
-			})
-
-          } else {
-                  Swal.fire(
-						'Cancelado', 
-						'Cancelaste la eliminacion',
-						'error');
-                 }
-	  
-	});
-	
-	
-};
-
-function borrarCategoria(e,cod){
-	e.preventDefault();
-	console.log(cod);
-	Swal.fire({
-	  title: 'Esta seguro de eliminar este registro?',
-	  text: "Esta accion no se puede reversar!",
-	  icon: 'warning',
-	  showCancelButton: true,
-	  confirmButtonColor: '#3085d6',
-	  cancelButtonColor: '#d33',
-	  confirmButtonText: 'Si, Borralo!',
-	  cancelButtonText: "No, Cancelar!",
-	}).then((result) => {
-	  if (result.isConfirmed) 
-		 {
-			window.setTimeout(function(){window.location.href = "CategoriaController?accion=chaoCategoria&id=" + cod},2000);
+			window.setTimeout(function(){window.location.href = cont+"Controller?accion=chaoRol&id=" + cod},2000);
 			Swal.fire({
 			  position: 'top-end',
 			  icon: 'success',
@@ -107,11 +35,11 @@ function borrarCategoria(e,cod){
 };
 
 
-
-function cambiare(e,cod,est){
+function cambiare(e,cod,est,cont){
 	e.preventDefault();
 	console.log(cod);
 	console.log(est);
+	console.log(cont);
 	Swal.fire({
 	  title: 'Esta seguro de cambiar el estado?',
 	  icon: 'warning',
@@ -125,100 +53,11 @@ function cambiare(e,cod,est){
 		 {
 			if(est==true)
 			window.setTimeout(function()
-			{window.location.href = "TipoRolController?accion=changeEstado&id="+cod+"&es=false"}
+			{window.location.href = cont+"Controller?accion=changeEstado&id="+cod+"&es=false"}
 			,2000);
 			else
 			window.setTimeout(function()
-			{window.location.href = "TipoRolController?accion=changeEstado&id="+cod+"&es=true"}
-			,2000);
-			
-			Swal.fire({
-			  position: 'top-end',
-			  icon: 'success',
-			  title: 'El estado ha sido cambiado',
-			  showConfirmButton: false,
-			  timer: 1500
-			})
-
-          } else {
-                  Swal.fire(
-						'Cancelado', 
-						'Cancelaste la eliminacion',
-						'error');
-                 }
-	  
-	});
-	
-	
-};
-
-function cambiareproveedor(e,cod,est){
-	e.preventDefault();
-	console.log(cod);
-	console.log(est);
-	Swal.fire({
-	  title: 'Esta seguro de cambiar el estado?',
-	  icon: 'warning',
-	  showCancelButton: true,
-	  confirmButtonColor: '#3085d6',
-	  cancelButtonColor: '#d33',
-	  confirmButtonText: 'Si, Cambialo!',
-	  cancelButtonText: "No, Cancelar!",
-	}).then((result) => {
-	  if (result.isConfirmed) 
-		 {
-			if(est==true)
-			window.setTimeout(function()
-			{window.location.href = "ProveedorController?accion=changeEstado&id="+cod+"&es=false"}
-			,2000);
-			else
-			window.setTimeout(function()
-			{window.location.href = "ProveedorController?accion=changeEstado&id="+cod+"&es=true"}
-			,2000);
-			
-			Swal.fire({
-			  position: 'top-end',
-			  icon: 'success',
-			  title: 'El estado ha sido cambiado',
-			  showConfirmButton: false,
-			  timer: 1500
-			})
-
-          } else {
-                  Swal.fire(
-						'Cancelado', 
-						'Cancelaste la eliminacion',
-						'error');
-                 }
-	  
-	});
-	
-	
-};
-
-
-function cambiarecategoria(e,cod,est){
-	e.preventDefault();
-	console.log(cod);
-	console.log(est);
-	Swal.fire({
-	  title: 'Esta seguro de cambiar el estado?',
-	  icon: 'warning',
-	  showCancelButton: true,
-	  confirmButtonColor: '#3085d6',
-	  cancelButtonColor: '#d33',
-	  confirmButtonText: 'Si, Cambialo!',
-	  cancelButtonText: "No, Cancelar!",
-	}).then((result) => {
-	  if (result.isConfirmed) 
-		 {
-			if(est==true)
-			window.setTimeout(function()
-			{window.location.href = "CategoriaController?accion=changeEstado&id="+cod+"&es=false"}
-			,2000);
-			else
-			window.setTimeout(function()
-			{window.location.href = "CategoriaController?accion=changeEstado&id="+cod+"&es=true"}
+			{window.location.href = cont+"Controller?accion=changeEstado&id="+cod+"&es=true"}
 			,2000);
 			
 			Swal.fire({

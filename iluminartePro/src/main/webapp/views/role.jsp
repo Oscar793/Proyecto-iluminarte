@@ -38,14 +38,14 @@
         <c:if test="${tiporol.getEstadoRol() == true}">
            <a rol="button" 
            class="btn btn-danger btn-sm" 
-           onclick="cambiare(event,${tiporol.getIdRol()},${tiporol.getEstadoRol()})"> 
+           onclick="cambiare(event,${tiporol.getIdRol()},${tiporol.getEstadoRol()},'TipoRol')"> 
         Inactivar
         </a>
         </c:if>
         <c:if test="${tiporol.getEstadoRol() == false}">
             <a rol="button" 
             class="btn btn-success btn-sm" 
-            onclick="cambiare(event,${tiporol.getIdRol()},${tiporol.getEstadoRol()})">
+            onclick="cambiare(event,${tiporol.getIdRol()},${tiporol.getEstadoRol()},'TipoRol')">
         Activar
         </a>
         </c:if> 

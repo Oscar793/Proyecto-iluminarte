@@ -9,6 +9,9 @@ public class TipoDocumento {
 		this.idTipoDocumento = idTipoDocumento;
 		this.nombreTipoDocumento = nombreTipoDocumento;
 	}
+	public TipoDocumento() {
+		// TODO Auto-generated constructor stub
+	}
 	public int getIdTipoDocumento() {
 		return idTipoDocumento;
 	}

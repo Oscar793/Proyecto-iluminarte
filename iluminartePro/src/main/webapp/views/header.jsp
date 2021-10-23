@@ -1,9 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
+
+<!-- Este header es del dashboard -->
+
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Iluminarte</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
@@ -113,14 +116,25 @@
 						</a>
 					</li>
 										
-					<li class="full-width divider-menu-h"></li>
+					
 					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
+						<a href="UsuarioController?accion=listar" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								USUARIOS
+							</div>							
+						</a>
+						
+						<li class="full-width divider-menu-h"></li>
+					<li class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
+							<div class="navLateral-body-cl">
+								<i class="zmdi zmdi-lamp"></i>
+							</div>
+							<div class="navLateral-body-cr hide-on-tablet">
+								PRODUCTOS
 							</div>
 							<span class="zmdi zmdi-chevron-left"></span>
 						</a>
@@ -131,7 +145,7 @@
 										<i class="zmdi zmdi-account"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										ADMINISTRADOR
+										RESIDENCIAL
 									</div>
 								</a>
 							</li>
@@ -141,7 +155,7 @@
 										<i class="zmdi zmdi-account-box-phone"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										VENDEDOR
+										COMERCIAL
 									</div>
 								</a>
 							</li>
@@ -151,21 +165,21 @@
 										<i class="zmdi zmdi-accounts"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										CLIENTE
+										INDUSTRIAL
+									</div>
+								</a>
+							</li>
+							<li class="full-width">
+								<a href="client.html" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-accounts"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										ACCESORIOS ELECTRICOS
 									</div>
 								</a>
 							</li>
 						</ul>
-						<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="products.html" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-lamp"></i>
-							</div>
-							<div class="navLateral-body-cr hide-on-tablet">
-								PRODUCTOS
-							</div>
-						</a>
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
