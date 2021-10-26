@@ -48,8 +48,8 @@ public class ProveedorController extends HttpServlet {
                     case "addProveedor":
                     	addProveedor(request,response);
                     	break;
-                    case "chaoProveedor":
-                    	chaoProveedor(request,response);
+                    case "eliminar":
+                    	eliminar(request,response);
                     	break;
                     case "verProveedor":
                     	verProveedor(request,response);
@@ -156,7 +156,7 @@ public class ProveedorController extends HttpServlet {
 		}
 		
 		
-		private void chaoProveedor(HttpServletRequest request, HttpServletResponse response) {
+		private void eliminar(HttpServletRequest request, HttpServletResponse response) {
 			ProveedorDAO rdao=new ProveedorDAO();
 	        Proveedor r=new Proveedor();
 	        if(request.getParameter("id")!=null) {

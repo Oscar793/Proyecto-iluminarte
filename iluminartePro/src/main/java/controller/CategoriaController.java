@@ -47,8 +47,8 @@ public class CategoriaController extends HttpServlet {
                     case "addCategoria":
                     	addCategoria(request,response);
                     	break;
-                    case "chaoCategoria":
-                    	chaoCategoria(request,response);
+                    case "eliminar":
+                    	eliminar(request,response);
                     	break;
                     case "verCategoria":
                     	verCategoria(request,response);
@@ -146,7 +146,7 @@ public class CategoriaController extends HttpServlet {
 	}
 	
 	
-	private void chaoCategoria(HttpServletRequest request, HttpServletResponse response) {
+	private void eliminar(HttpServletRequest request, HttpServletResponse response) {
 		CategoriaDAO rdao=new CategoriaDAO();
         Categoria r=new Categoria();
         if(request.getParameter("id")!=null) {

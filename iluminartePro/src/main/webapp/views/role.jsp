@@ -61,7 +61,7 @@
 
 	    <a rol="button" 
 	    class="btn btn-danger" 
-	    onclick="borrar(event,${tiporol.getIdRol()})">
+	    onclick="borrar(event,${tiporol.getIdRol()},'TipoRol')">
 	    <i class="bi bi-trash"></i> 
 	    </a>
 	    

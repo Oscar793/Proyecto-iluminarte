@@ -13,8 +13,9 @@
   Agregar Usuario
   </a>
 <div class="table-responsive">
- <table class="table table-hover table-bordered">
+ <table class="table table-hover table-bordered" id ="datat">
  
+ <thead>
        <tr>
             <th>Id</th>
             <th>Tipo de documento </th>
@@ -31,9 +32,9 @@
             <th colspan="2"><center>Acciones</center></th>
        </tr>
         
+ </thead>
 
-
-
+<tbody>
 <c:forEach var="u" items="${user}">         
         
         <tr>
@@ -95,13 +96,30 @@
         
 </c:forEach>    
 
-
+</tbody>
 </table>
 </div>
 
  </div> 
  </div>
  </div>
+
+<script >
+var myTable = document.querySelector("#datat");
+
+var dataTable = new DataTable("#datat", {
+	perPage:5,
+	labels: {
+	    placeholder: "Buscar por Campo...",
+	    perPage: "{select} Registros por página",
+	    noRows: "No se encontraron registros",
+	    info: "Mostrando {start} a {end} de {rows} registros",
+	},
+	sortable:true
+
+});
+
+</script>
 
 
 <%@include file="footer.jsp" %>

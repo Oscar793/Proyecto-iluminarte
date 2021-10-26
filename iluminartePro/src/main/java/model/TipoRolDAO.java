@@ -11,7 +11,7 @@ import java.util.List;
 public class TipoRolDAO {
 		/*Se requieren atributos para realizar las operaciones*/
 			
-			Connection con; //objeto de conexión
+			Connection con; //objeto de conexiï¿½n
 			PreparedStatement ps; //objeto para sentencias preparadas
 			ResultSet rs; //objeto para almacenar consultas
 			String sql=null; //variable para guardar sentencias
@@ -46,7 +46,7 @@ public class TipoRolDAO {
 				}catch(Exception e) {
 					System.out.println("No existen roles definidos"+e.getMessage());
 				}finally {
-					con.close(); //cerrar conexión
+					con.close(); //cerrar conexiï¿½n
 				}
 				return roles;
 			}
@@ -54,14 +54,14 @@ public class TipoRolDAO {
 			public int registrarRol(TipoRol tiporol) throws SQLException {
 				sql="INSERT INTO tiporol (nombreRol,estadoRol) VALUES (?,?)";
 				try {
-					con=c.conectar();//abrir conexión
-					ps=con.prepareStatement(sql); //preparación
+					con=c.conectar();//abrir conexiï¿½n
+					ps=con.prepareStatement(sql); //preparaciï¿½n
 					ps.setString(1, tiporol.getNombreRol());
 					ps.setBoolean(2, tiporol.getEstadoRol());
 					System.out.println(sql);
-					ps.executeUpdate();//Ejecucución sentencia
+					ps.executeUpdate();//Ejecucuciï¿½n sentencia
 					ps.close();//cerrar sentencia
-					System.out.println("Se registró un rol");
+					System.out.println("Se registrï¿½ un rol");
 					
 				}catch(Exception e) {
 					System.out.println("Error en el registro del rol "+e.getMessage());
@@ -80,9 +80,9 @@ public class TipoRolDAO {
 					ps=con.prepareStatement(sql);
 					ps.executeUpdate();
 					ps.close();
-					System.out.println("Se eliminó el rol");
+					System.out.println("Se eliminÃ³ el rol");
 				}catch(Exception e) {
-					System.out.println("Error en la eliminación del registro "+e.getMessage());
+					System.out.println("Error en la eliminaciÃ³n del registro "+e.getMessage());
 				}
 				finally {
 					con.close();
@@ -101,7 +101,7 @@ public class TipoRolDAO {
 						ro.setIdRol(rs.getInt("idRol"));
 						ro.setNombreRol(rs.getString("nombreRol"));
 						ro.setEstadoRol(rs.getBoolean("estadoRol"));
-						System.out.println("Se encontró el rol");
+						System.out.println("Se encontrï¿½ el rol");
 						
 					}
 				}catch(Exception e) {
@@ -119,17 +119,17 @@ public class TipoRolDAO {
 						"WHERE idRol="+tiporol.getIdRol();
 				try {
 					
-					con=c.conectar();//abrir conexión
-					ps=con.prepareStatement(sql); //preparación
+					con=c.conectar();//abrir conexiï¿½n
+					ps=con.prepareStatement(sql); //preparaciï¿½n
 					ps.setString(1, tiporol.getNombreRol());
 					ps.setBoolean(2, tiporol.getEstadoRol());
 					
 					System.out.println(sql);
-					ps.executeUpdate();//Ejecucución sentencia
+					ps.executeUpdate();//Ejecucuciï¿½n sentencia
 					ps.close();//cerrar sentencia
-					System.out.println("Se actualizó un rol");
+					System.out.println("Se actualizï¿½ un rol");
 				}catch(Exception e) {
-					System.out.println("Error en la actualización del rol "+e.getMessage());
+					System.out.println("Error en la actualizaciï¿½n del rol "+e.getMessage());
 				}
 				finally {
 					con.close();
@@ -142,16 +142,16 @@ public class TipoRolDAO {
 						"WHERE idRol="+tiporol.getIdRol();
 				try {
 					
-					con=c.conectar();//abrir conexión
-					ps=con.prepareStatement(sql); //preparación
+					con=c.conectar();//abrir conexiï¿½n
+					ps=con.prepareStatement(sql); //preparaciï¿½n
 					ps.setBoolean(1, tiporol.getEstadoRol());
 					
 					System.out.println(sql);
-					ps.executeUpdate();//Ejecucución sentencia
+					ps.executeUpdate();//Ejecucuciï¿½n sentencia
 					ps.close();//cerrar sentencia
-					System.out.println("Se actualizó el estado del rol");
+					System.out.println("Se actualizï¿½ el estado del rol");
 				}catch(Exception e) {
-					System.out.println("Error en la actualización del estado rol "+e.getMessage());
+					System.out.println("Error en la actualizaciï¿½n del estado rol "+e.getMessage());
 				}
 				finally {
 					con.close();

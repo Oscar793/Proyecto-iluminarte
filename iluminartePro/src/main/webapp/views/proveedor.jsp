@@ -51,7 +51,7 @@
         <c:if test="${proveedor.getEstadoProveedor() == false}">
             <a rol="button" 
             class="btn btn-success btn-sm" 
-            onclick="cambiareproveedor(event,${proveedor.getIdProveedor()},${proveedor.getEstadoProveedor()},'Proveedor')">
+            onclick="cambiare(event,${proveedor.getIdProveedor()},${proveedor.getEstadoProveedor()},'Proveedor')">
         Activar
         </a>
         </c:if> 
@@ -67,7 +67,7 @@
 
 	    <a rol="button" 
 	    class="btn btn-danger" 
-	    onclick="borrarProveedor(event,${proveedor.getIdProveedor()})">
+	    onclick="borrar(event,${proveedor.getIdProveedor()},'Proveedor')">
 	    <i class="bi bi-trash"></i> 
 	    </a>
 	    

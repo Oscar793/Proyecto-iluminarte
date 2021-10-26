@@ -13,7 +13,7 @@ function borrar(e,cod,cont){
 	}).then((result) => {
 	  if (result.isConfirmed) 
 		 {
-			window.setTimeout(function(){window.location.href = cont+"Controller?accion=chaoRol&id=" + cod},2000);
+			window.setTimeout(function(){window.location.href = cont+"Controller?accion=eliminar&id=" + cod},2000);
 			Swal.fire({
 			  position: 'top-end',
 			  icon: 'success',

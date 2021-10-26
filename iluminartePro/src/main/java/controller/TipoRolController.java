@@ -50,8 +50,8 @@ public class TipoRolController extends HttpServlet {
                     case "addRol":
                     	addRol(request,response);
                     	break;
-                    case "chaoRol":
-                    	chaoRol(request,response);
+                    case "eliminar":
+                    	eliminar(request,response);
                     	break;
                     case "verRol":
                     	verRol(request,response);
@@ -144,7 +144,7 @@ public class TipoRolController extends HttpServlet {
 	}
 	
 	
-	private void chaoRol(HttpServletRequest request, HttpServletResponse response) {
+	private void eliminar(HttpServletRequest request, HttpServletResponse response) {
 		TipoRolDAO rdao=new TipoRolDAO();
         TipoRol r=new TipoRol();
         if(request.getParameter("id")!=null) {

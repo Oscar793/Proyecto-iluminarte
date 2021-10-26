@@ -40,14 +40,14 @@
         <c:if test="${categoria.getEstadoCategoria() == true}">
            <a rol="button" 
            class="btn btn-danger btn-sm" 
-           onclick="cambiarecategoria(event,${categoria.getIdCategoria()},${categoria.getEstadoCategoria()},'Categoria')"> 
+           onclick="cambiare(event,${categoria.getIdCategoria()},${categoria.getEstadoCategoria()},'Categoria')"> 
         Inactivar
         </a>
         </c:if>
         <c:if test="${categoria.getEstadoCategoria() == false}">
             <a rol="button" 
             class="btn btn-success btn-sm" 
-            onclick="cambiarecategoria(event,${categoria.getIdCategoria()},${categoria.getEstadoCategoria()},'Categoria')">
+            onclick="cambiare(event,${categoria.getIdCategoria()},${categoria.getEstadoCategoria()},'Categoria')">
         Activar
         </a>
         </c:if> 
@@ -63,7 +63,7 @@
 
 	    <a rol="button" 
 	    class="btn btn-danger" 
-	    onclick="borrarCategoria(event,${categoria.getIdCategoria()})">
+	    onclick="borrar(event,${categoria.getIdCategoria()},'Categoria')">
 	    <i class="bi bi-trash"></i> 
 	    </a>
 	    
