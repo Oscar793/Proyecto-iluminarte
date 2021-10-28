@@ -17,7 +17,27 @@ public class UsuarioDAO {
 	Conexion c=new Conexion();
 	
 	int r;
-
+	public Usuario validar(String correoUsuario, String nombreUsuario ) {
+		Usuario us=new Usuario();
+		sql="SELECT * FROM usuario where correoUsuario=? and nombreUsuario=?";
+		try {
+			con=c.conectar();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, correoUsuario);
+			ps.setString(2, nombreUsuario);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				us.setNombreUsuario(rs.getString("nombreUsuario"));
+				us.setApellidoUsuario(rs.getString("apellidoUsuario"));
+				us.setCorreoUsuario(rs.getString("correoUsuario"));
+			}
+			
+		}catch (Exception e){
+			
+		}
+		return us;
+	}
+	
 	public List Listar() throws SQLException {
 		List<Usuario> usu=new ArrayList<>();
 		sql="SELECT idUsuario, nombreTipoDocumento,nombreRol, nombreUsuario, apellidoUsuario,contrasenaUsuario , "
