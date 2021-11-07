@@ -57,9 +57,9 @@ public class Conexion {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con=DriverManager.getConnection(bbdd,usuario,clave);
-			 System.out.println("Conexión Exitosa");
+			 System.out.println("Conexiï¿½n Exitosa");
 		}catch(Exception e) {
-			System.out.println("Error de conexión a la base de datos "+e.getMessage().toString());			
+			System.out.println("Error de conexiï¿½n a la base de datos "+e.getMessage().toString());			
 		}
 		return con;
 		
@@ -84,9 +84,9 @@ public class Conexion {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con=DriverManager.getConnection(bbdd,usuario,clave);
-			 System.out.println("Conexión Exitosa");
+			 System.out.println("ConexiÃ³n Exitosa");
 		}catch(Exception e) {
-			System.out.println("Error de conexión a la base de datos "+e.getMessage().toString());			
+			System.out.println("Error de conexiÃ³n a la base de datos "+e.getMessage().toString());			
 		}
 		return con;
 	}

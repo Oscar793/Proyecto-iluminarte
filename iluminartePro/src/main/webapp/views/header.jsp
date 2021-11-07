@@ -137,51 +137,22 @@
 								<i class="zmdi zmdi-lamp"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
-								PRODUCTOS
+								MODULO PRODUCTOS
 							</div>
 							<span class="zmdi zmdi-chevron-left"></span>
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="views/Administrador.jsp" class="full-width">
+								<a href="ProductoController?accion=listar" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account"></i>
+										<i class="zmdi zmdi-plus-square"></i>
 									</div>
 									<div class="navLateral-body-cr hide-on-tablet">
-										RESIDENCIAL
+										VER PRODUCTOS
 									</div>
 								</a>
 							</li>
-							<li class="full-width">
-							<a href="vend.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account-box-phone"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										COMERCIAL
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="client.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										INDUSTRIAL
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="client.html" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts"></i>
-									</div>
-									<div class="navLateral-body-cr hide-on-tablet">
-										ACCESORIOS ELECTRICOS
-									</div>
-								</a>
-							</li>
+							
 						</ul>
 					</li>
 					<li class="full-width divider-menu-h"></li>
@@ -195,12 +166,10 @@
 							</div>
 						</a>
 					</li>
-
-					</li>
 				</ul>
 			</nav>
 		</div>
-	</section>	
+	</section>
 	</body>
 </html> 
 

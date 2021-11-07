@@ -9,5 +9,6 @@
 	<script src="js/jquery.mCustomScrollbar.concat.min.js" ></script>
 	<script src="js/main.js" ></script>
     <script src="js/main2.js" ></script>
+    <script src="js/multiTabla.js" ></script>
 </body>
 </html>

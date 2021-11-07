@@ -9,7 +9,7 @@
     <title>IluMinarte- Inicio</title>
 
     <!-- Styles -->
-     <!-- <link rel="stylesheet" href="css/styles.css"> -->
+     
      <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
      
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+   <!--   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">-->
 
 <body>
 
@@ -36,8 +36,8 @@
 
          <div class="list-container">
              <ul class="lists">
-                 <li><a href="Index.html" class="fas fa-user-tie"></a></li>     
-              <li><a href="Inicio.html" class="fas fa-cart-arrow-down"></a></li>           
+                 <li><a href="login.jsp" class="fas fa-user-tie"></a></li>     
+              <li><a href="Inicio.jsp" class="fas fa-cart-arrow-down"></a></li>           
               </ul>
          </div>
      </nav>
@@ -132,21 +132,6 @@
     </section>
    
 
-
-     <!-- Img Header
-     <figure class="img-header">
-      <div class="welcome">
-         <h4>"Dale Luz y Estilo a tus Espacios"</h4>
-         <h2><a href="#">               
-            Iluminarte
-         </a></h2>
-      </div>
-  </figure>
-
- </header> -->
-
-
- <!-- <div class="col-lg-3 col-sm-6 col-12"><div id="metro_about-2" class="widget widget_metro_about"><img width="318" height="86" src="https://lumenconcept.com/wp-content/uploads/2020/09/LumenConcept-Logotipo-b.png" class="attachment-full size-full wp-post-image" alt="" loading="lazy">		<ul></ul> -->
  <!-- Footer -->
  
  <footer class="site-footer">
@@ -163,9 +148,7 @@
               <p style="margin-top:10px;margin-bottom:0px;margin-left:-40px"><i class="flaticon-phone-call-2" style="padding-right:15px"></i><a class="rtin-content" href="tel:(601)7946664">(+601) 794 66 64</a></p>
               <p style="margin-top:10px;margin-bottom:0px;margin-left:-40px"><i class="flaticon-phone-call-2" style="padding-right:15px"></i><a class="rtin-content" href="tel:(601)7946664">(+57) 319 695 61 25</a></p>
               <p style="margin-top:10px;margin-bottom:0px;margin-left:-25px"><i class="flaticon-envelope"></i><a class="rtin-content" href="mailto:contactanos@lumenconcept.com">contactanos@iluminarte.com</a></p>
-          <!-- <p><i class="flaticon-phone-call"></i><a class="rtin-content" href="tel:(+57)3196956125"></a>(+57) 319 695 61 25</a></p> -->
-  
-          <!-- <li><i class="flaticon-envelope"></i><a class="rtin-content" href="mailto:contactanos@lumenconcept.com">contactanos@lumenconcept.com</a></li> -->
+         
       </ul>
 
         </div>
@@ -190,16 +173,6 @@
 </div>
 </div>
 </div>
-
-<!-- </div><div class="col-lg-3 col-sm-6 col-12"><div id="nav_menu-2" class="widget widget_nav_menu"><h3 class="widgettitle">INFORMACIÓN</h3><div class="menu-information-container">
-<ul id="menu-information" class="menu"><li id="menu-item-2133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2133"><a href="https://lumenconcept.com/nosotros/">Nosotros</a></li>
-<li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2514"><a href="https://lumenconcept.com/servicios/">Servicios</a></li>
-<li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2513"><a href="https://lumenconcept.com/proyectos/">Proyectos de Iluminación</a></li>
-<li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2971"><a href="https://lumenconcept.com/cotizaciones/">Cotizaciones</a></li>
-<li id="menu-item" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2134"><a href="https://lumenconcept.com/contactanos/">Contáctanos</a></li>
-</ul></div></div></div>				</div>
-  </div>
-</div>			  -->
 
 
 <div class="footer-sep"></div>
@@ -233,16 +206,6 @@
           </footer>
 
 
-
-
-
-    <!-- Footer
-    <footer>
-       <p>&copy; Todos los derechos reservados - 2021 | Iluminarte</p>
-    </footer>
-
-</main>
-     -->
 <!-- Scripts -->
 <script src="https://kit.fontawesome.com/35db202371.js" crossorigin="anonymous"></script>
 <script src="js/app.js"></script>

@@ -13,15 +13,16 @@
   Agregar Rol
   </a>
 
- <table class="table table-hover table-bordered">
- 
+ <table class="table table-hover table-bordered" id ="datat">
+  <thead>
        <tr>
             <th>Id</th>
             <th>Nombre</th>
             <th><center>Estado</center></th>            
             <th colspan="2"><center>Acciones</center></th>
         </tr>
-        
+   </thead>
+<tbody>      
 <c:forEach var="tiporol" items="${roles}">         
         
         <tr>
@@ -69,7 +70,7 @@
         <tr>
         
 </c:forEach>    
-
+</tbody>
 
 </table>
 

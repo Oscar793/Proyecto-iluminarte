@@ -12,8 +12,8 @@
   Agregar Categoria
   </a>
 
- <table class="table table-hover table-bordered">
- 
+ <table class="table table-hover table-bordered" id ="datat">
+ <thead>
        <tr>
             <th>Id</th>
             <th>Nombre de la Categoria</th>
@@ -21,7 +21,8 @@
             <th><center>Estado</center></th>            
             <th colspan="3"><center>Acciones</center></th>
         </tr>
-        
+ </thead>
+ <tbody>      
 <c:forEach var="categoria" items="${categorias}">         
         
         <tr>
@@ -72,6 +73,7 @@
         
 </c:forEach>    
 
+</tbody>
 
 </table>
 

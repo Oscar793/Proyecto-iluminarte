@@ -12,8 +12,8 @@
   Agregar Proveedor
   </a>
 
- <table class="table table-hover table-bordered">
- 
+ <table class="table table-hover table-bordered" id ="datat">
+ <thead>
        <tr>
             <th>Id</th>
             <th>Nombre del Proveedor</th>
@@ -23,7 +23,8 @@
             <th><center>Estado</center></th>            
             <th colspan="5"><center>Acciones</center></th>
         </tr>
-        
+ </thead>
+ <tbody>      
 <c:forEach var="proveedor" items="${proveedores}">         
         
         <tr>
@@ -76,7 +77,7 @@
         
 </c:forEach>    
 
-
+</tbody>
 </table>
 
 

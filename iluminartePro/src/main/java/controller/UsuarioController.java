@@ -270,7 +270,7 @@ private void edit(HttpServletRequest request, HttpServletResponse response) {
 		
 		
 	}catch(Exception e) {
-		System.out.println("Rol NO actualizado "+e.getMessage());
+		System.out.println("Usuario NO actualizado "+e.getMessage());
 	}
 
 	

@@ -1,5 +1,7 @@
 package model;
 
+import java.io.InputStream;
+
 
 public class Producto {
 	
@@ -7,19 +9,23 @@ public class Producto {
 	private String nombreProducto;
 	private Double precioProducto;
 	private String descripcionProducto;
-	private String imagenProducto;
-	private Categoria idCategoriaPK;
-	private Proveedor idProveedorPK;
+	private InputStream imagenProducto;
+	private Categoria idCategoriaFK;
+	private Proveedor idProveedorFK;
+	private Boolean estadoProducto;
+	private int stockProducto;
 	public Producto(int idProducto, String nombreProducto, Double precioProducto, String descripcionProducto,
-			String imagenProducto, Categoria idCategoriaPK, Proveedor idProveedorPK) {
+			InputStream imagenProducto, Categoria idCategoriaFK, Proveedor idProveedorFK,Boolean estadoProducto, int stockProducto) {
 		super();
 		this.idProducto = idProducto;
 		this.nombreProducto = nombreProducto;
 		this.precioProducto = precioProducto;
 		this.descripcionProducto = descripcionProducto;
 		this.imagenProducto = imagenProducto;
-		this.idCategoriaPK = idCategoriaPK;
-		this.idProveedorPK = idProveedorPK;
+		this.idCategoriaFK = idCategoriaFK;
+		this.idProveedorFK = idProveedorFK;
+		this.estadoProducto = estadoProducto;
+		this.stockProducto = stockProducto;
 	}
 	
 	public Producto() {
@@ -49,23 +55,44 @@ public class Producto {
 	public void setDescripcionProducto(String descripcionProducto) {
 		this.descripcionProducto = descripcionProducto;
 	}
-	public String getImagenProducto() {
+
+	
+
+	public InputStream getImagenProducto() {
 		return imagenProducto;
 	}
-	public void setImagenProducto(String imagenProducto) {
+
+	public void setImagenProducto(InputStream imagenProducto) {
 		this.imagenProducto = imagenProducto;
 	}
-	public Categoria getIdCategoriaPK() {
-		return idCategoriaPK;
+
+	public Categoria getIdCategoriaFK() {
+		return idCategoriaFK;
 	}
-	public void setIdCategoriaPK(Categoria idCategoriaPK) {
-		this.idCategoriaPK = idCategoriaPK;
+	public void setIdCategoriaFK(Categoria idCategoriaFK) {
+		this.idCategoriaFK = idCategoriaFK;
 	}
-	public Proveedor getIdProveedorPK() {
-		return idProveedorPK;
+	public Proveedor getIdProveedorFK() {
+		return idProveedorFK;
 	}
-	public void setIdProveedorPK(Proveedor idProveedorPK) {
-		this.idProveedorPK = idProveedorPK;
+	public void setIdProveedorFK(Proveedor idProveedorFK) {
+		this.idProveedorFK = idProveedorFK;
+	}
+
+	public Boolean isEstadoProducto() {
+		return estadoProducto;
+	}
+
+	public void setEstadoProducto(Boolean estadoProducto) {
+		this.estadoProducto = estadoProducto;
+	}
+
+	public int getStockProducto() {
+		return stockProducto;
+	}
+
+	public void setStockProducto(int stockProducto) {
+		this.stockProducto = stockProducto;
 	}
 	
 	
