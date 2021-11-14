@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.TipoRol;
 import model.TipoRolDAO;
@@ -46,10 +47,38 @@ public class UsuarioController extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		
 		String accion = request.getParameter("accion");
+		
+		//Crear la sesion
+		HttpSession sesion=request.getSession();
+		
+		
         try {
             if (accion != null) {
                 switch (accion) {
                    
+                	case "abrirLogin":
+                		abrirLogin(request,response);
+                		break;
+                	case "login":
+                		u.setCorreoUsuario(request.getParameter("correo"));
+                		u.setContrasenaUsuario(request.getParameter("password"));
+                		try {
+                			u=ud.validarUsuario(u.getCorreoUsuario(), u.getContrasenaUsuario());
+                			if(u.getCorreoUsuario()!=null && u.isEstadoUsuario()==true) {
+                				System.out.println("El DAO encontró el usuario y está activo.");
+                				sesion.setAttribute("user", u);
+                				request.getRequestDispatcher("UsuarioController?accion=listar").forward(request, response);
+                			}else if(u.getCorreoUsuario()!=null && u.isEstadoUsuario()==false) {
+                				System.out.println("El DAO encontró el usuario y está inactivo.");
+                				request.getRequestDispatcher("UsuarioController?accion=abrirLogin&msn=Usuario inactivo, por favor consulte al administrador.").forward(request, response);
+                			}else {
+                				System.out.println("El DAO no encontró el usuario y está inactivo.");
+                				request.getRequestDispatcher("UsuarioController?accion=abrirLogin&msn=Datos de acceso incorrectos.").forward(request, response);                				
+                			}
+                		}catch (Exception ex) {
+                            System.out.println("Error" + ex.getMessage());
+                        }
+                		break;
                     case "listar":
                         listar(request, response);
                         break;
@@ -96,6 +125,19 @@ public class UsuarioController extends HttpServlet {
 		doGet(request, response);
 	}
 	
+	private void abrirLogin(HttpServletRequest request, HttpServletResponse response) {
+        
+        try{
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+            System.out.println("Login abierto");
+        }catch(Exception e){
+            request.setAttribute("msje", "No se pudo abrir el login" + e.getMessage());
+            System.out.println("No se pudo abrir el login" + e.getMessage());
+        }finally{
+            
+        }
+	}
+
 	private void listar(HttpServletRequest request, HttpServletResponse response) {
   
         

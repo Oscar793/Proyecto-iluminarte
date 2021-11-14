@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Ingreso - Registro</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+	<link rel="stylesheet" href="./css/estilos.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-	<link rel="stylesheet" href="css/estilos.css">
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
 
@@ -20,7 +20,7 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id ="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -58,12 +58,18 @@
             <div class="contenedor__login-register">
 
                 <!--Login-->
-                <form action="Validar" class="formulario__login" method="POST">
+                <form action="UsuarioController?accion=login" class="formulario__login" method="POST">
                     <h2>Iniciar sesión</h2>
-                    <input type="text" name="txtuser" placeholder="Correo electrónico" >
-                    <input type="password" name="txtpass" placeholder="Contraseña">
+                    <input type="text" name="correo" placeholder="Correo electrónico" >
+                    <input type="password" name="password" placeholder="Contraseña">
                     <input type="submit" name="accion" value="Ingresar">
-                    
+                    <p>
+                    	<%
+                    	if(request.getParameter("msn")!=null){
+                    		out.println(request.getParameter("msn"));
+                    	}
+                    	%>
+                    </p>
                 </form>
 
                 <!--Registro-->
@@ -80,6 +86,6 @@
         </div>
 
 </main>
-   <!--  <script src="js/login.js"></script>--> 
+   <script src="js/login.js"></script>
 </body>
 </html>

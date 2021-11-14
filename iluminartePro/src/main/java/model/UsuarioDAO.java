@@ -17,25 +17,37 @@ public class UsuarioDAO {
 	Conexion c=new Conexion();
 	
 	int r;
-	public Usuario validar(String correoUsuario, String nombreUsuario ) {
-		Usuario us=new Usuario();
-		sql="SELECT * FROM usuario where correoUsuario=? and nombreUsuario=?";
+	
+	public Usuario validarUsuario(String correo, String passw) throws SQLException {
+		Usuario u=new Usuario();
+		sql="SELECT idUsuario,nombreUsuario,apellidoUsuario,correoUsuario,estadoUsuario,nombreRol FROM usuario JOIN tiporol ON tiporol.idRol=usuario.idRolFK WHERE correoUsuario=? AND contrasenaUsuario=?";
 		try {
 			con=c.conectar();
 			ps=con.prepareStatement(sql);
-			ps.setString(1, correoUsuario);
-			ps.setString(2, nombreUsuario);
+			ps.setString(1, correo);
+			ps.setString(2, passw);
 			rs=ps.executeQuery();
+			
 			while(rs.next()) {
-				us.setNombreUsuario(rs.getString("nombreUsuario"));
-				us.setApellidoUsuario(rs.getString("apellidoUsuario"));
-				us.setCorreoUsuario(rs.getString("correoUsuario"));
+				u.setIdUsuario(rs.getInt(1));
+				u.setNombreUsuario(rs.getString(2));
+				u.setApellidoUsuario(rs.getString(3));
+				u.setCorreoUsuario(rs.getString(4));
+				u.setEstadoUsuario(rs.getBoolean(5));
+				u.setIdRolFK(new TipoRol());
+				u.getIdRolFK().setIdRol(rs.getInt(6));
+				u.getIdRolFK().setNombreRol(rs.getString(7));
+				System.out.println("Se encontró el usuario");
+				
 			}
-			
-		}catch (Exception e){
-			
+		}catch(Exception e) {
+			System.out.println("Error en la consulta del usuario "+e.getMessage());
 		}
-		return us;
+		finally {
+			con.close();
+		}
+		
+		return u;
 	}
 	
 	public List Listar() throws SQLException {

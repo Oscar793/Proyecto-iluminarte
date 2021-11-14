@@ -7,7 +7,7 @@
   
   <h1>Registro de Productos</h1>
   
-  <form method="post" action="ProductoController?accion=edit" enctype="multipart/form-data">
+  <form method="post" action="ProductoController?accion=edit">
   	
   	<input type="hidden" class="form-control" name="id" value="${producto.idProducto}"/>
  	
@@ -64,12 +64,12 @@
   	
   	 <div class="form-group">
   		<label for="imagen">Imagen</label>
-  		<input type="file" class="form-control" name="imagen" id="imagen" placeholder="Ingrese la Imagen" value="${producto.imagenProducto}"/>
+  		<input type="text" class="form-control" name="imagen" id="imagen" placeholder="Ingrese la Imagen" value="${producto.imagenProducto}"/>
   	</div>
   	
   	<div class="form-group">
   		<label for="stock">Stock</label>
-  		<input type="text" class="form-control" name="stock" id="stock" placeholder="Ingrese la Imagen" value="${producto.stockProducto}"/>  		
+  		<input type="text" class="form-control" name="stock" id="stock" placeholder="Ingrese la Imagen" value="${producto.stockProducto}"/>
   	</div>
   	
   	

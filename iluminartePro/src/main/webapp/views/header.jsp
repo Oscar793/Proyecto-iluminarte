@@ -1,6 +1,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 
+<%@page session="true" %>
+<%
+//Recoger datos de session
+
+if(session.getAttribute("user")!=null){
+	
+
+%>
+
 <!-- Este header es del dashboard -->
 
 <!DOCTYPE html>
@@ -63,9 +72,8 @@
 					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
-					<span>
-						Admin<br>
-						<small>Admin</small>
+					<span>Usuario<br>
+						<small>${user.idRolFK.nombreRol}</small>
 					</span>
 				</figcaption>
 			</figure>
@@ -173,3 +181,8 @@
 	</body>
 </html> 
 
+<%
+	}else{
+		request.getRequestDispatcher("login.jsp").forward(request,response);
+	}
+%>

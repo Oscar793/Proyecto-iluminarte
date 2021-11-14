@@ -195,7 +195,7 @@ private void add(HttpServletRequest request, HttpServletResponse response) {
 		}
     	p.setImagenProducto(inputStream);
     	
-    	
+    	p.setEstadoProducto(Boolean.parseBoolean(request.getParameter("estado")));
     	p.setStockProducto(Integer.parseInt(request.getParameter("stock")));
     	
 
@@ -276,30 +276,11 @@ private void edit(HttpServletRequest request, HttpServletResponse response) {
     	p.setNombreProducto(request.getParameter("nombre"));    	
     	p.setPrecioProducto(Double.parseDouble(request.getParameter("precio")));
     	p.setDescripcionProducto(request.getParameter("descripcion"));
+    	//p.setImagenProducto(request.getParameter("imagen"));
+    	p.setEstadoProducto(Boolean.parseBoolean (request.getParameter("direccion")));
+    	p.setStockProducto(Integer.parseInt(request.getParameter("stock")));
     	
-    	
-    	   	
-    	
-    	Part part = null;
-		try {
-			part = request.getPart("imagen");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ServletException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	InputStream inputStream = null;
-		try {
-			inputStream = part.getInputStream();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	p.setImagenProducto(inputStream);
-    	
- 	 
+ 
     }
     if(request.getParameter("chkEstado")!=null) {
     	p.setEstadoProducto(true);
@@ -307,9 +288,6 @@ private void edit(HttpServletRequest request, HttpServletResponse response) {
     else {
     	p.setEstadoProducto(false);
     }
-    
-    p.setStockProducto(Integer.parseInt(request.getParameter("stock")));
-    
 	try {
 		pro.actualizar(p);
 		response.sendRedirect("ProductoController?accion=listar");
