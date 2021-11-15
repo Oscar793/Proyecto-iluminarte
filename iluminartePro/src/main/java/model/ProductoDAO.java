@@ -224,7 +224,7 @@ public class ProductoDAO {
 	}
 	
 	public int actualizar(Producto pr) throws SQLException {
-		sql="UPDATE producto SET idCategoriaFK=?,idProveedorFK=?, nombreProducto=?, precioProducto=?,descripcionProducto=?,imagenProducto=? , estadoProducto=?, stockProducto "+
+		sql="UPDATE producto SET idCategoriaFK=?,idProveedorFK=?, nombreProducto=?, precioProducto=?,descripcionProducto=?,imagenProducto=? , estadoProducto=?, stockProducto=? "+
 				"WHERE idProducto="+pr.getIdProducto();
 		try {
 			
