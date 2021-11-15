@@ -62,7 +62,7 @@
                     <h2>Iniciar sesión</h2>
                     <input type="text" name="correo" placeholder="Correo electrónico" >
                     <input type="password" name="password" placeholder="Contraseña">
-                    <input type="submit" name="accion" value="Ingresar">
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                     <p>
                     	<%
                     	if(request.getParameter("msn")!=null){

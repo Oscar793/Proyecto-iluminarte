@@ -20,7 +20,7 @@ public class UsuarioDAO {
 	
 	public Usuario validarUsuario(String correo, String passw) throws SQLException {
 		Usuario u=new Usuario();
-		sql="SELECT idUsuario,nombreUsuario,apellidoUsuario,correoUsuario,estadoUsuario,nombreRol FROM usuario JOIN tiporol ON tiporol.idRol=usuario.idRolFK WHERE correoUsuario=? AND contrasenaUsuario=?";
+		sql="SELECT idUsuario,nombreUsuario,apellidoUsuario,correoUsuario,numeroIdentificacionUsuario,direccionUsuario,telefonoUsuario,estadoUsuario,idRolFK,nombreRol FROM usuario JOIN tiporol ON tiporol.idRol=usuario.idRolFK WHERE correoUsuario=? AND contrasenaUsuario=?";
 		try {
 			con=c.conectar();
 			ps=con.prepareStatement(sql);
@@ -33,11 +33,14 @@ public class UsuarioDAO {
 				u.setNombreUsuario(rs.getString(2));
 				u.setApellidoUsuario(rs.getString(3));
 				u.setCorreoUsuario(rs.getString(4));
-				u.setEstadoUsuario(rs.getBoolean(5));
+				u.setNumerodeIdentificacionUsuario(rs.getString(5));
+				u.setDireccionUsuario(rs.getString(6));
+				u.setTelefonoUsuario(rs.getString(7));
+				u.setEstadoUsuario(rs.getBoolean(8));
 				u.setIdRolFK(new TipoRol());
-				u.getIdRolFK().setIdRol(rs.getInt(6));
-				u.getIdRolFK().setNombreRol(rs.getString(7));
-				System.out.println("Se encontró el usuario");
+				u.getIdRolFK().setIdRol(rs.getInt(9));
+				u.getIdRolFK().setNombreRol(rs.getString(10));
+				System.out.println("Se encontró el usuario validado");
 				
 			}
 		}catch(Exception e) {

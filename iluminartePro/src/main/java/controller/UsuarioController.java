@@ -49,7 +49,7 @@ public class UsuarioController extends HttpServlet {
 		String accion = request.getParameter("accion");
 		
 		//Crear la sesion
-		HttpSession sesion=request.getSession();
+		HttpSession session=request.getSession();
 		
 		
         try {
@@ -66,8 +66,8 @@ public class UsuarioController extends HttpServlet {
                 			u=ud.validarUsuario(u.getCorreoUsuario(), u.getContrasenaUsuario());
                 			if(u.getCorreoUsuario()!=null && u.isEstadoUsuario()==true) {
                 				System.out.println("El DAO encontró el usuario y está activo.");
-                				sesion.setAttribute("user", u);
-                				request.getRequestDispatcher("UsuarioController?accion=listar").forward(request, response);
+                				session.setAttribute("usua", u);
+                				response.sendRedirect("UsuarioController?accion=listar");
                 			}else if(u.getCorreoUsuario()!=null && u.isEstadoUsuario()==false) {
                 				System.out.println("El DAO encontró el usuario y está inactivo.");
                 				request.getRequestDispatcher("UsuarioController?accion=abrirLogin&msn=Usuario inactivo, por favor consulte al administrador.").forward(request, response);

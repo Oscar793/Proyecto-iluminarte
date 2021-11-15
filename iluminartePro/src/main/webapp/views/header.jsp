@@ -1,14 +1,18 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
-
-<%@page session="true" %>
+  <%@page session="true" %>
 <%
-//Recoger datos de session
+response.setHeader("Pragma", "No-cache");
+response.setHeader("Cache-control", "no-cache,no-store,must-revalidate");
+response.setDateHeader("Expires", 0);
 
-if(session.getAttribute("user")!=null){
+//Recoger datos de sesión
+if(session.getAttribute("usua")!=null){
 	
 
 %>
+
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- Este header es del dashboard -->
 
@@ -50,7 +54,7 @@ if(session.getAttribute("user")!=null){
 						<i class="zmdi zmdi-power"></i>
 						<div class="mdl-tooltip" for="btn-exit">LogOut</div>
 					</li>
-					<li class="text-condensedLight noLink" ><small>Usuario</small></li>
+					<li class="text-condensedLight noLink" ><small>${usua.getNombreUsuario()} ${usua.getApellidoUsuario()}</small></li>
 					<li class="noLink">
 						<figure>
 							<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
@@ -72,8 +76,8 @@ if(session.getAttribute("user")!=null){
 					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption class="navLateral-body-cr hide-on-tablet">
-					<span>Usuario<br>
-						<small>${user.idRolFK.nombreRol}</small>
+					<span>${usua.getNombreUsuario()} ${usua.getApellidoUsuario()}<br>
+						<small> ${usua.idRolFK.nombreRol} </small>
 					</span>
 				</figcaption>
 			</figure>
@@ -181,8 +185,8 @@ if(session.getAttribute("user")!=null){
 	</body>
 </html> 
 
-<%
-	}else{
-		request.getRequestDispatcher("login.jsp").forward(request,response);
-	}
-%>
+ <% 
+  }else{
+	  request.getRequestDispatcher("login.jsp").forward(request,response);
+  }
+  %>
