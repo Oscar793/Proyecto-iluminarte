@@ -416,9 +416,9 @@ html, body{
 }
 /*=============Estilos contenido pagina*/
 .pageContent{
-	padding-top: 45px;
+	padding-top: 50px;
 	right: 0;
-	width: 80%;
+	width: 0%;
 	z-index: 77;
 	background-color: #fff;
 	transition: all .3s ease-in-out;
@@ -794,4 +794,3 @@ html, body{
 		text-align: right;
 	}
 }
-
