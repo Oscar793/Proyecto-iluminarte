@@ -79,6 +79,10 @@ public class UsuarioController extends HttpServlet {
                             System.out.println("Error" + ex.getMessage());
                         }
                 		break;
+                	case "logout":
+                		session.removeAttribute("user");
+                		session.invalidate();
+                		request.getRequestDispatcher("inicio.jsp").forward(request, response);
                     case "listar":
                         listar(request, response);
                         break;
@@ -100,7 +104,7 @@ public class UsuarioController extends HttpServlet {
                     case "changeEstado":
                     	changeEstado(request,response);
                     break;
-                    
+          	                    
                     default:
                         response.sendRedirect("login.jsp");
                 }
@@ -335,6 +339,7 @@ private void changeEstado(HttpServletRequest request, HttpServletResponse respon
 	}catch(Exception e) {
 		System.out.println("Estado NO actualizado "+e.getMessage());
 	}
-}
+ }
+
 
 }
