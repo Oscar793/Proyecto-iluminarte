@@ -30,7 +30,7 @@ $(document).ready(function(){
     $('.btn-exit').on('click', function(){
     	swal({
 		  	title: '¿Salir del sistema?',
-		 	text: "La sesión actual se cerrará y saldrá del sistema.",
+		 	text: "La sesion actual se cerrara y saldra del sistema.",
 		  	type: 'warning',
 		  	showCancelButton: true,
 		  	confirmButtonText: 'Salir',
@@ -38,7 +38,7 @@ $(document).ready(function(){
 		},
 		function(isConfirm) {
 		  	if (isConfirm) {
-		    	window.location='inicio.html'; 
+		    	window.location='UsuarioController?accion=logout'; 
 		  	}
 		});
     });
