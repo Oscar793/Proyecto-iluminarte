@@ -167,16 +167,30 @@ if(session.getAttribute("usua")!=null){
 							
 						</ul>
 					</li>
-					<li class="full-width divider-menu-h"></li>
+<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<a href="sales.html" class="full-width">
+						<a href="#!" class="full-width btn-subMenu">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
 							<div class="navLateral-body-cr hide-on-tablet">
 								VENTAS
 							</div>
+							<span class="zmdi zmdi-chevron-left"></span>
 						</a>
+						<ul class="full-width menu-principal sub-menu-options">
+							<li class="full-width">
+								<a href="views/venta.jsp" class="full-width">
+									<div class="navLateral-body-cl">
+										<i class="zmdi zmdi-plus-square"></i>
+									</div>
+									<div class="navLateral-body-cr hide-on-tablet">
+										REGISTRAR VENTA
+									</div>
+								</a>
+							</li>
+							
+						</ul>
 					</li>
 				</ul>
 			</nav>
