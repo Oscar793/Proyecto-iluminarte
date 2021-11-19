@@ -82,7 +82,13 @@ public class UsuarioController extends HttpServlet {
                 	case "logout":
                 		session.removeAttribute("user");
                 		session.invalidate();
-                		request.getRequestDispatcher("inicio.jsp").forward(request, response);
+                		request.getRequestDispatcher("Inicio.jsp").forward(request, response);
+                	case "abrirchangepass":
+                		abrirchangepass(request, response);
+                		break;
+                	case "changePassword":
+                		changePassword(request, response);
+                		break;
                     case "listar":
                         listar(request, response);
                         break;
@@ -141,6 +147,20 @@ public class UsuarioController extends HttpServlet {
             
         }
 	}
+	
+	private void abrirchangepass(HttpServletRequest request, HttpServletResponse response) {
+        
+        try{
+            request.getRequestDispatcher("views/changePass.jsp").forward(request, response);
+            System.out.println("Cambio de Password Abierto");
+        }catch(Exception e){
+            request.setAttribute("msje", "No se pudo abrir el Cambio de Password" + e.getMessage());
+            System.out.println("No se pudo abrir el Cambio de Password" + e.getMessage());
+        }finally{
+            
+        }
+	}
+
 
 	private void listar(HttpServletRequest request, HttpServletResponse response) {
   
@@ -321,6 +341,29 @@ private void edit(HttpServletRequest request, HttpServletResponse response) {
 
 	
 }
+
+private void changePassword(HttpServletRequest request, HttpServletResponse response) {
+	
+	if(request.getParameter("id")!=null &&  request.getParameter("passnew")!=null) {
+		
+		u.setIdUsuario(Integer.parseInt(request.getParameter("id")));
+		
+		u.setContrasenaUsuario(request.getParameter("passnew"));
+    	
+    }
+
+	try {
+		ud.changePassword(u);
+		response.sendRedirect("UsuarioController?accion=logout");
+		
+		
+	}catch(Exception e) {
+		System.out.println("Contraseña NO actualizada "+e.getMessage());
+	}
+
+	
+}
+
 
 private void changeEstado(HttpServletRequest request, HttpServletResponse response) {
 	

@@ -22,7 +22,6 @@
             <th>Rol </th>
             <th>Nombre <br>Usuario</th>
             <th>Apellido <br>Usuario</th>
-            <th>Contrasena</th>
             <th>Numero de identificacion</th>
             <th>Direccion</th>
             <th>Telefono</th>
@@ -45,7 +44,6 @@
         
         <td>${u.getNombreUsuario()}</td>
         <td>${u.getApellidoUsuario()}</td>        
-        <td>${u.getContrasenaUsuario()}</td>        
         <td>${u.getNumerodeIdentificacionUsuario()}</td>        
         <td>${u.getDireccionUsuario()}</td>
         <td>${u.getTelefonoUsuario()}</td>

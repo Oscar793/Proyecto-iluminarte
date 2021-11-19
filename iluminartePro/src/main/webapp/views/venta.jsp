@@ -10,7 +10,7 @@
 		
 			<div class="col-sm-4">
 			
-			<form action="VentaController">
+			<form action="VentasController?accion=NuevaVenta" method="POST">
 				<div class="card">
 				
 					<div class="card-body">
@@ -25,14 +25,14 @@
 						
 							<div class="col-sm-6">
 							
-								<input type="text" name="codigocliente" class="form-control" placeholder="codigo">
-								<input type="submit" name="accion" value="Buscar" class="btn btn-outline-info">
+								<input type="text" name="codigocliente" value="${c.getNumerodeIdentificacionUsuario()}" class="form-control" placeholder="codigo">
+								<input type="submit" value="BuscarCliente" class="btn btn-outline-info">
 							</div>
 							
 							
 							<div class="col-sm-6">
 							
-								<input type="text" name="nombrescliente" class="form-control col-sm-6">
+								<input type="text" name="nombrescliente" value="${c.getNombreUsuario()}" placeholder="Datos del Cliente" class="form-control col-sm-6">
 							</div>
 							
 							
@@ -54,14 +54,8 @@
 								<input type="submit" name="accion" value="Buscar" class="btn btn-outline-info">
 							</div>
 							
-							
-							<div class="col-sm-6">
-							
-								<input type="text" name="nombrescliente" placeholder="Datos del Producto" class="form-control col-sm-6">
-							</div>
-							
-							
-						
+			
+	
 						</div>
 						
 						<div class="form-group d-flex">

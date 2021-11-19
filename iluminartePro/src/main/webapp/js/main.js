@@ -29,7 +29,7 @@ $(document).ready(function(){
     /*Salir del sistema*/
     $('.btn-exit').on('click', function(){
     	swal({
-		  	title: '¿Salir del sistema?',
+		  	title:'¿Salir del sistema?',
 		 	text: "La sesion actual se cerrara y saldra del sistema.",
 		  	type: 'warning',
 		  	showCancelButton: true,

@@ -20,7 +20,7 @@ public class UsuarioDAO {
 	
 	public Usuario validarUsuario(String correo, String passw) throws SQLException {
 		Usuario u=new Usuario();
-		sql="SELECT idUsuario,nombreUsuario,apellidoUsuario,correoUsuario,numeroIdentificacionUsuario,direccionUsuario,telefonoUsuario,estadoUsuario,idRolFK,nombreRol FROM usuario JOIN tiporol ON tiporol.idRol=usuario.idRolFK WHERE correoUsuario=? AND contrasenaUsuario=?";
+		sql="SELECT idUsuario,nombreUsuario,apellidoUsuario,correoUsuario,numeroIdentificacionUsuario,direccionUsuario,telefonoUsuario,estadoUsuario,idRolFK,nombreRol,contrasenaUsuario FROM usuario JOIN tiporol ON tiporol.idRol=usuario.idRolFK WHERE correoUsuario=? AND contrasenaUsuario=?";
 		try {
 			con=c.conectar();
 			ps=con.prepareStatement(sql);
@@ -40,6 +40,7 @@ public class UsuarioDAO {
 				u.setIdRolFK(new TipoRol());
 				u.getIdRolFK().setIdRol(rs.getInt(9));
 				u.getIdRolFK().setNombreRol(rs.getString(10));
+				u.setContrasenaUsuario(rs.getString(11));
 				System.out.println("Se encontró el usuario validado");
 				
 			}
@@ -218,6 +219,29 @@ public class UsuarioDAO {
 		return r;
 	}
 	
+	public int changePassword(Usuario us) throws SQLException {
+		sql="UPDATE usuario SET contrasenaUsuario=? "+
+				"WHERE idUsuario="+us.getIdUsuario();
+		try {
+			
+			con=c.conectar();//abrir conexión
+			ps=con.prepareStatement(sql); //preparación
+			ps.setString(1, us.getContrasenaUsuario());
+			
+			System.out.println(ps);
+			ps.executeUpdate();//Ejecucución sentencia
+			ps.close();//cerrar sentencia
+			System.out.println("Se actualizó la contraseña del usuario");
+		}catch(Exception e) {
+			System.out.println("Error en la actualización la contraseña del usuario"+e.getMessage());
+		}
+		finally {
+			con.close();
+		}
+		return r;
+	}
+
+	
 	
 	public int cambiarEstado(Boolean es, int id) throws SQLException {
 		sql="UPDATE usuario SET estadoUsuario=" + es +
@@ -242,6 +266,45 @@ public class UsuarioDAO {
 			con.close();
 		}
 		return r;
+	}
+	
+	public Usuario buscar(String numero) throws SQLException {
+		Usuario u=new Usuario();
+		sql="SELECT * FROM usuario WHERE numerodeIdentificacionUsuario="+numero;
+		try {
+			con=c.conectar();
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			System.out.println(ps);
+			
+			while(rs.next()) {
+				u.setIdUsuario(rs.getInt(1));
+				
+				u.setIdTipodeDocumentoFK(new TipoDocumento());
+				u.getIdTipodeDocumentoFK().setNombreTipoDocumento(rs.getString(2));
+				
+				u.setIdRolFK(new TipoRol());
+				u.getIdRolFK().setNombreRol(rs.getString(3));
+				
+				u.setNombreUsuario(rs.getString(4));
+				u.setApellidoUsuario(rs.getString(5));
+				u.setContrasenaUsuario(rs.getString(6));
+				u.setNumerodeIdentificacionUsuario(rs.getString(7));
+				u.setDireccionUsuario(rs.getString(8));
+				u.setTelefonoUsuario(rs.getString(9));				
+				u.setCorreoUsuario(rs.getString(10));
+				u.setEstadoUsuario(rs.getBoolean(11));
+				System.out.println("Se encontró el usuario");
+				
+			}
+		}catch(Exception e) {
+			System.out.println("Error en la consulta del usuario "+e.getMessage());
+		}
+		finally {
+			con.close();
+		}
+		
+		return u;
 	}
 
 }

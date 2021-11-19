@@ -26,7 +26,7 @@
     <nav class="menu">
 
    
-      <a href="#"><img class="logo" src="img/iluminarte.png" alt="logo"></a>
+      <a href="Inicio.jsp"><img class="logo" src="img/iluminarte.png" alt="logo"></a>
          <div class="nav">
          <li><a href="indexA.html">  Sobre nosotros </a> </li>  
          <li><a href="indexA.html">  Contactanos</a> </li>  

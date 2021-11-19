@@ -1,21 +1,15 @@
-  <%@page session="true" %>
+ <%@page session="true" %>
 <%
 response.setHeader("Pragma", "No-cache");
 response.setHeader("Cache-control", "no-cache,no-store,must-revalidate");
 response.setDateHeader("Expires", 0);
-
 //Recoger datos de sesión
 if(session.getAttribute("usua")!=null){
 	
-
 %>
-
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!-- Este header es del dashboard -->
-
 <!DOCTYPE html>
 <html lang="es-ES">
 <head>
@@ -34,7 +28,6 @@ if(session.getAttribute("usua")!=null){
 	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.js"></script>
 	
-
 </head>
 <body>
 	
@@ -80,11 +73,14 @@ if(session.getAttribute("usua")!=null){
 						<small> ${usua.idRolFK.nombreRol} </small>
 					</span>
 				</figcaption>
+				<a rol="button" href="UsuarioController?accion=abrirchangepass" class="btn btn-success btn-sm" >Cambiar Password</a>
 			</figure>
+			<br>
+			<br>
+			<br>
 			<div class="full-width tittles navLateral-body-tittle-menu">
 				<i class="zmdi zmdi-desktop-mac"></i><span class="hide-on-tablet">&nbsp; DASHBOARD</span>
 			</div>
-
 			<nav class="full-width">
 				<ul class="full-width list-unstyle menu-principal">
 					<li class="full-width">
@@ -98,7 +94,7 @@ if(session.getAttribute("usua")!=null){
 						</a>
 					</li>
 					
-					<li class="full-width">
+					<li class="full-width" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
 						<a href="TipoRolController?accion=listarRoles" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="bi bi-shield-fill-check"></i>
@@ -109,7 +105,7 @@ if(session.getAttribute("usua")!=null){
 						</a>
 					</li>
 					
-					<li class="full-width">
+					<li class="full-width" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
 						<a href="CategoriaController?accion=listarCategoria" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="bi bi-bookmark"></i>
@@ -120,7 +116,7 @@ if(session.getAttribute("usua")!=null){
 						</a>
 					</li>
 					
-					<li class="full-width">
+					<li class="full-width" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
 						<a href="ProveedorController?accion=listarProveedor" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-assignment"></i>
@@ -132,7 +128,7 @@ if(session.getAttribute("usua")!=null){
 					</li>
 										
 					
-					<li class="full-width">
+					<li class="full-width" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
 						<a href="UsuarioController?accion=listar" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
@@ -143,7 +139,7 @@ if(session.getAttribute("usua")!=null){
 						</a>
 						
 						<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
+					<li class="full-width" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
 						<a href="#!" class="full-width btn-subMenu">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-lamp"></i>
@@ -168,7 +164,8 @@ if(session.getAttribute("usua")!=null){
 						</ul>
 					</li>
 <li class="full-width divider-menu-h"></li>
-					<li class="full-width">
+					<!--  test="${usua.idRolFK.idRol!=1 || usua.idRolFK.idRol!=2}"-->
+					<li class="full-width" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
 						<a href="#!" class="full-width btn-subMenu">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-shopping-cart"></i>
@@ -189,12 +186,12 @@ if(session.getAttribute("usua")!=null){
 									</div>
 								</a>
 							</li>
-						
+
 		<div class="full-width pageContent">
 		</div>
-			
-							
-							
+
+
+
 						</ul>
 					</li>
 				</ul>
@@ -203,7 +200,6 @@ if(session.getAttribute("usua")!=null){
 	</section>
 	</body>
 </html> 
-
  <% 
   }else{
 	  request.getRequestDispatcher("login.jsp").forward(request,response);
