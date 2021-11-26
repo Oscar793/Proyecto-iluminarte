@@ -1,3 +1,4 @@
+
 <%@include file="header.jsp" %>
 
 <div class="mdl-tabs__tab-bar">
@@ -10,20 +11,7 @@
   
   <form method="post" action="UsuarioController?accion=add">
   	
-  <!-- <div class="form-group">
-  	<label for="descripcion">Tipo Documento</label>
-    <select class="form-select" aria-label="Default select example" name="tipodoc">
-	  <option selected>Seleccione su Tipo de Documento</option>
-	  
-	  <option value="Cedula de Ciudadania">C�dula de Ciudadan�a</option>
-	  <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
-	  <option value="C�dula de Extranjeria">C�dula de Extranjeria</option>
-	  
-	  
-	</select>
-	
-	</div>-->
-	
+
 	<div class="form-group">
   	  <label>Tipo Documento</label>
            
@@ -87,8 +75,9 @@
   	
   	<div class="form-group">
   		<label for="correo">Correo Electronico</label>
-  		<input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese el Correo"/>
+  		<input type="email" class="form-control" name="correo" id="correo" placeholder="Ingrese el Correo" onchange="verifyCorreo()"/>
   	</div>
+  	<div id="mensaje" class="text-danger"> </div>
   	
   	<div class="form-check">
   <input class="form-check-input" type="checkbox" name="chkEstado" id="chkEstado" checked>
@@ -105,6 +94,30 @@
   </div> 
 </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+
+	
+	
+	
+
+	function verifyCorreo(){
+		const correo=document.getElementById("correo").value;
+		console.log(correo)
+		$.ajax({
+			  url: "UsuarioController?accion=validarCorreo",
+			  data: {
+			    correo: correo
+			  },
+			  success: function( result ) {
+			    $( "#mensaje" ).html( "<strong>" + result + "</strong>" );
+			  }
+			});
+	}
+
+</script>
 
 
 <%@include file="footer.jsp" %>

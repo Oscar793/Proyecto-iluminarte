@@ -24,7 +24,7 @@ public class TipoRolDAO {
 			public List listarRoles() throws Exception{
 				
 				List<TipoRol> roles=new ArrayList<>();
-				sql="SELECT *FROM tiporol";
+				sql="SELECT * FROM tiporol";
 				
 				try {
 					con=c.conectar(); //abrir conexion
@@ -61,7 +61,7 @@ public class TipoRolDAO {
 					System.out.println(sql);
 					ps.executeUpdate();//Ejecucuci�n sentencia
 					ps.close();//cerrar sentencia
-					System.out.println("Se registr� un rol");
+					System.out.println("Se registro un rol");
 					
 				}catch(Exception e) {
 					System.out.println("Error en el registro del rol "+e.getMessage());
@@ -127,9 +127,9 @@ public class TipoRolDAO {
 					System.out.println(sql);
 					ps.executeUpdate();//Ejecucuci�n sentencia
 					ps.close();//cerrar sentencia
-					System.out.println("Se actualiz� un rol");
+					System.out.println("Se actualizo un rol");
 				}catch(Exception e) {
-					System.out.println("Error en la actualizaci�n del rol "+e.getMessage());
+					System.out.println("Error en la actualizacion del rol "+e.getMessage());
 				}
 				finally {
 					con.close();

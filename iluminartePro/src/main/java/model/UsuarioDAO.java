@@ -20,7 +20,11 @@ public class UsuarioDAO {
 	
 	public Usuario validarUsuario(String correo, String passw) throws SQLException {
 		Usuario u=new Usuario();
-		sql="SELECT idUsuario,nombreUsuario,apellidoUsuario,correoUsuario,numeroIdentificacionUsuario,direccionUsuario,telefonoUsuario,estadoUsuario,idRolFK,nombreRol,contrasenaUsuario FROM usuario JOIN tiporol ON tiporol.idRol=usuario.idRolFK WHERE correoUsuario=? AND contrasenaUsuario=?";
+		sql="SELECT idUsuario,nombreUsuario,apellidoUsuario,correoUsuario,numeroIdentificacionUsuario,direccionUsuario,telefonoUsuario,estadoUsuario,idRolFK,nombreRol,contrasenaUsuario,idTipoDocumentoFK,nombreTipoDocumento " 
+		+ "FROM usuario " 
+		+ "JOIN tiporol ON tiporol.idRol=usuario.idRolFK "
+		+ "JOIN tipodocumento ON tipodocumento.idTipoDocumento = usuario.idTipoDocumentoFK "
+		+ "WHERE correoUsuario=? AND contrasenaUsuario=?";
 		try {
 			con=c.conectar();
 			ps=con.prepareStatement(sql);
@@ -41,6 +45,11 @@ public class UsuarioDAO {
 				u.getIdRolFK().setIdRol(rs.getInt(9));
 				u.getIdRolFK().setNombreRol(rs.getString(10));
 				u.setContrasenaUsuario(rs.getString(11));
+				u.setIdTipodeDocumentoFK(new TipoDocumento());
+				u.getIdTipodeDocumentoFK().setIdTipoDocumento(rs.getInt(12));
+				
+				u.getIdTipodeDocumentoFK().setNombreTipoDocumento(rs.getString(13));
+				
 				System.out.println("Se encontró el usuario validado");
 				
 			}
@@ -266,6 +275,31 @@ public class UsuarioDAO {
 			con.close();
 		}
 		return r;
+	}
+	
+	
+	public int validarCorreo(String correo) throws SQLException {
+	 sql="SELECT COUNT(*) AS cant FROM usuario WHERE correoUsuario='"+ correo +"'";
+		
+		int total=0;
+		try {
+			con=c.conectar();
+			ps=con.prepareStatement(sql);
+			System.out.println("La consulta es " + ps);
+			rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				total=rs.getInt("cant");
+			}
+			
+			System.out.println("El total de registros es "+total);
+		}catch(Exception e) {
+			System.out.println("Error en la verificación del usuario "+e.getMessage());
+		}
+		finally {
+			con.close();
+		}
+		return total;
 	}
 	
 	public Usuario buscar(String numero) throws SQLException {

@@ -74,6 +74,7 @@ if(session.getAttribute("usua")!=null){
 					</span>
 				</figcaption>
 				<a rol="button" href="UsuarioController?accion=abrirchangepass" class="btn btn-success btn-sm" >Cambiar Password</a>
+				<a rol="button" href="UsuarioController?accion=verPerfil" class="btn btn-success btn-sm" >Ver Perfil</a>
 			</figure>
 			<br>
 			<br>
@@ -105,7 +106,7 @@ if(session.getAttribute("usua")!=null){
 						</a>
 					</li>
 					
-					<li class="full-width" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
+					<li class="full-width" <c:if test="${usua.idRolFK.idRol==3}"> hidden </c:if>>
 						<a href="CategoriaController?accion=listarCategoria" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="bi bi-bookmark"></i>

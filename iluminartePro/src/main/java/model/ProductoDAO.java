@@ -80,17 +80,7 @@ public class ProductoDAO {
 		
 		sql="SELECT * FROM producto WHERE idProducto=" + id;
 		
-		String sql1="SELECT MAX(idProducto) FROM producto";
-		
 	
-		
-		
-		/*sql="SELECT producto.idProducto,categoria.nombreCategoria,proveedor.nombreProveedor, producto.nombreProducto,producto.precioProducto,producto.descripcionProducto, producto.imagenProducto,producto.estadoProducto,producto.stockProducto "
-				+ "FROM producto " 
-				+"JOIN categoria ON categoria.idCategoria=producto.idCategoriaFK " 
-				+"JOIN proveedor ON proveedor.idProveedor = producto.idProveedorFK "
-				+"WHERE producto.idProducto="+id;*/
-		
 			
 		InputStream inputStream=null;
 		OutputStream outputStream=null;
@@ -113,20 +103,12 @@ public class ProductoDAO {
 			bufferedInputStream = new BufferedInputStream(inputStream);
 			bufferedOutputStream = new BufferedOutputStream(outputStream);
 			
-	
-			/*for (int i = 0;i <= 6;i++) {
-				
-			 if((i = bufferedInputStream.read()) != -1) {
-				bufferedOutputStream.write(i);
-				System.out.println("Cuantos veces ingreso a IMG "+ i);
-			 }
-			}*/
 			
 			int i=0;
 			while ((i = bufferedInputStream.read()) != -1) {
 				
 				bufferedOutputStream.write(i);
-				//System.out.println("Cuantos veces ingreso a IMG "+ i);
+				System.out.println("Cuantos veces ingreso a IMG "+ i);
 				
 			}
 			

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -82,12 +83,15 @@ public class UsuarioController extends HttpServlet {
                 	case "logout":
                 		session.removeAttribute("user");
                 		session.invalidate();
-                		request.getRequestDispatcher("Inicio.jsp").forward(request, response);
+                		request.getRequestDispatcher("UsuarioController?accion=abrirLogin&msn=Sesión Finalizada").forward(request, response);
                 	case "abrirchangepass":
                 		abrirchangepass(request, response);
                 		break;
                 	case "changePassword":
                 		changePassword(request, response);
+                		break;
+                	case "verPerfil":
+                		verPerfil(request, response);
                 		break;
                     case "listar":
                         listar(request, response);
@@ -106,6 +110,9 @@ public class UsuarioController extends HttpServlet {
                     break;
                     case "edit":
                     	edit(request,response);
+                    break;
+                    case "validarCorreo":
+                    	validarCorreo(request,response);
                     break;
                     case "changeEstado":
                     	changeEstado(request,response);
@@ -156,6 +163,21 @@ public class UsuarioController extends HttpServlet {
         }catch(Exception e){
             request.setAttribute("msje", "No se pudo abrir el Cambio de Password" + e.getMessage());
             System.out.println("No se pudo abrir el Cambio de Password" + e.getMessage());
+        }finally{
+            
+        }
+	}
+	
+	private void verPerfil(HttpServletRequest request, HttpServletResponse response) {
+	
+		 System.out.println("tipodocumento");
+        try{   		
+        	this.obtenerTiposDocumentos(request);
+            request.getRequestDispatcher("views/usuario-perfil.jsp").forward(request, response);
+            System.out.println("Perfil abierto");
+        }catch(Exception e){
+            request.setAttribute("msje", "No se pudo abrir el perfil" + e.getMessage());
+            System.out.println("No se pudo abrir el perfil" + e.getMessage());
         }finally{
             
         }
@@ -384,5 +406,32 @@ private void changeEstado(HttpServletRequest request, HttpServletResponse respon
 	}
  }
 
+
+private void validarCorreo(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    
+	response.setContentType("text/html;charset=iso-8859-1");
+	PrintWriter out=response.getWriter();
+	
+	 
+	
+    try{
+        int cant=ud.validarCorreo(request.getParameter("correo"));
+        System.out.println("Entro por validar correo "+cant);
+        
+        if(cant!=0) {
+        	System.out.println("El correo ya está registrado");
+        	out.println("El correo ya está registrado");
+        }else {
+        	System.out.println("Se ha validado su correo puede continuar con el registro");
+        }
+        
+        
+    }catch(Exception e){
+        
+        System.out.println("No se pudo abrir el Cambio de Password" + e.getMessage());
+    }finally{
+        
+    }
+}
 
 }
