@@ -8,7 +8,7 @@
 <div class="full-width panel mdl-shadow--5dp"> 
 
 <h1>Lista de Usuarios</h1>
-  <a type="button" class="btn btn-primary" href="UsuarioController?accion=abrirForm">
+  <a type="button" class="btn btn-primary" href="UsuarioController?accion=abrirForm" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
   <i class="bi bi-plus-circle"></i> 
   Agregar Usuario
   </a>
@@ -62,14 +62,14 @@
         <c:if test="${u.isEstadoUsuario() == true}">
            <a rol="button" 
            class="btn btn-danger btn-sm" 
-           onclick="cambiare(event,${u.getIdUsuario()},${u.isEstadoUsuario()},'Usuario')"> 
+           onclick="cambiare(event,${u.getIdUsuario()},${u.isEstadoUsuario()},'Usuario')" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>> 
         Inactivar
         </a>
         </c:if>
         <c:if test="${u.isEstadoUsuario() == false}">
             <a rol="button" 
             class="btn btn-success btn-sm" 
-            onclick="cambiare(event,${u.getIdUsuario()},${u.isEstadoUsuario()},'Usuario')">
+            onclick="cambiare(event,${u.getIdUsuario()},${u.isEstadoUsuario()},'Usuario')" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
         Activar
         </a>
         </c:if> 
@@ -79,13 +79,13 @@
         <td>
         <a rol="button" 
         class="btn btn-warning" 
-        href="UsuarioController?accion=ver&id=${u.getIdUsuario()}">
+        href="UsuarioController?accion=ver&id=${u.getIdUsuario()}" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
         <i class="bi bi-pencil"></i> 
         </a>
 
 	    <a rol="button" 
 	    class="btn btn-danger" 
-	    onclick="borrar(event,${u.getIdUsuario()},'Usuario')">
+	    onclick="borrar(event,${u.getIdUsuario()},'Usuario')" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
 	    <i class="bi bi-trash"></i> 
 	    </a>
 	    

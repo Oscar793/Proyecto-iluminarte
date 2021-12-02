@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 import model.TipoRol;
 import model.TipoRolDAO;
 
@@ -19,6 +20,7 @@ import model.TipoDocumentoDAO;
 
 import model.Usuario;
 import model.UsuarioDAO;
+
 
 
 
@@ -62,7 +64,7 @@ public class UsuarioController extends HttpServlet {
                 		break;
                 	case "login":
                 		u.setCorreoUsuario(request.getParameter("correo"));
-                		u.setContrasenaUsuario(request.getParameter("password"));
+                		u.setContrasenaUsuario(ud.MD5(request.getParameter("password")));
                 		try {
                 			u=ud.validarUsuario(u.getCorreoUsuario(), u.getContrasenaUsuario());
                 			if(u.getCorreoUsuario()!=null && u.isEstadoUsuario()==true) {
@@ -256,7 +258,7 @@ private void add(HttpServletRequest request, HttpServletResponse response) {
         
     	u.setNombreUsuario(request.getParameter("nombre"));    	
     	u.setApellidoUsuario(request.getParameter("apellido"));
-    	u.setContrasenaUsuario(request.getParameter("contrasena"));
+    	u.setContrasenaUsuario(ud.MD5(request.getParameter("contrasena")));
     	u.setNumerodeIdentificacionUsuario(request.getParameter("numero"));
     	u.setDireccionUsuario(request.getParameter("direccion"));
     	u.setTelefonoUsuario(request.getParameter("telefono"));

@@ -85,7 +85,7 @@ if(session.getAttribute("usua")!=null){
 			<nav class="full-width">
 				<ul class="full-width list-unstyle menu-principal">
 					<li class="full-width">
-						<a href="Inicio.jsp" class="full-width">
+						<a href="InicioController?accion=abrirForm" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-store"></i>
 							</div>
@@ -117,7 +117,7 @@ if(session.getAttribute("usua")!=null){
 						</a>
 					</li>
 					
-					<li class="full-width" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
+					<li class="full-width" <c:if test="${usua.idRolFK.idRol==3}"> hidden </c:if>>
 						<a href="ProveedorController?accion=listarProveedor" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-assignment"></i>
@@ -129,7 +129,7 @@ if(session.getAttribute("usua")!=null){
 					</li>
 										
 					
-					<li class="full-width" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
+					<li class="full-width" <c:if test="${usua.idRolFK.idRol==3}"> hidden </c:if>>
 						<a href="UsuarioController?accion=listar" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
@@ -166,7 +166,7 @@ if(session.getAttribute("usua")!=null){
 					</li>
 <li class="full-width divider-menu-h"></li>
 					<!--  test="${usua.idRolFK.idRol!=1 || usua.idRolFK.idRol!=2}"-->
-					<li class="full-width" <c:if test="${usua.idRolFK.idRol!=1}"> hidden </c:if>>
+					<li class="full-width" <c:if test="${usua.idRolFK.idRol==3}"> hidden </c:if>>
 						<a href="#!" class="full-width btn-subMenu">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-shopping-cart"></i>
