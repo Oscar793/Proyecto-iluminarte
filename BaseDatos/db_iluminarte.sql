@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-03-2022 a las 03:56:52
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 7.4.27
+-- Tiempo de generación: 25-03-2022 a las 05:21:27
+-- Versión del servidor: 10.4.18-MariaDB
+-- Versión de PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,6 +35,9 @@ CREATE TABLE `administrador` (
 --
 -- Volcado de datos para la tabla `administrador`
 --
+
+INSERT INTO `administrador` (`idAdministrador`, `idUsuarioFK`) VALUES
+(5, 56);
 
 -- --------------------------------------------------------
 
@@ -71,11 +74,6 @@ CREATE TABLE `cliente` (
   `idMunicipioDivipolaFK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Volcado de datos para la tabla `cliente`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -89,11 +87,6 @@ CREATE TABLE `detallepedido` (
   `cantidadDetallePedido` int(11) NOT NULL,
   `precioDetallePedido` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `detallepedido`
---
-
 
 -- --------------------------------------------------------
 
@@ -1215,7 +1208,6 @@ INSERT INTO `divipola` (`idMunicipioDivipola`, `nombreMunicipioDivipola`, `nombr
 (1101, 'VICHADA', 'SANTA ROSALIA'),
 (1102, 'VICHADA', 'CUMARIBO');
 
-
 -- --------------------------------------------------------
 
 --
@@ -1247,10 +1239,6 @@ CREATE TABLE `pedido` (
   `numeroSeriePedido` varchar(15) DEFAULT NULL,
   `montoPedido` double DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `pedido`
---
 
 -- --------------------------------------------------------
 
@@ -1371,6 +1359,10 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
+INSERT INTO `usuario` (`idUsuario`, `idTipoDocumentoFK`, `idRolFK`, `nombreUsuario`, `apellidoUsuario`, `contrasenaUsuario`, `numeroIdentificacionUsuario`, `direccionUsuario`, `telefonoUsuario`, `correoUsuario`, `estadoUsuario`) VALUES
+(1, 1, 1, 'User', 'Root', '0effc17cc082aa085d66e302fcd0b8d7', '111111', 'Cl 0 # 0-0', '6666666', 'root@root.com', 1),
+(56, 1, 1, 'NICOLAS', 'ORTIZ', '62903bb2cff69de135b4a61172ad94aa', '1005774177', 'CALLE 90 # 89A-46', '3202978837', 'vinico0911@hotmail.com', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -1381,11 +1373,6 @@ CREATE TABLE `vendedor` (
   `idVendedor` int(11) NOT NULL,
   `idUsuarioFK` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `vendedor`
---
-
 
 --
 -- Índices para tablas volcadas
@@ -1490,7 +1477,7 @@ ALTER TABLE `vendedor`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `idAdministrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idAdministrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `categoria`
@@ -1550,7 +1537,7 @@ ALTER TABLE `tiporol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedor`
