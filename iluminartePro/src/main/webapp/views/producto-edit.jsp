@@ -69,7 +69,7 @@
   	<div id="msnprecioproVal" class="text-danger"> </div>
   	
   	<div class="form-group">
-  		<label for="descripcion">Contrasena</label>
+  		<label for="descripcion">Descripción</label>
   		<input type="text" class="form-control" name="descripcion" id="descripcion" onBlur="verifyProductoEdit()" placeholder="Ingrese la Descripcion" value="${producto.descripcionProducto}"/>
   	</div>
   	
