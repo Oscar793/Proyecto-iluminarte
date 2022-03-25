@@ -418,14 +418,11 @@ private void validarFormularioPro(HttpServletRequest request, HttpServletRespons
 	  System.out.println("proveedor "+proveedor);
 	
 	  String nombre = request.getParameter("nombre");
-		
-	  String precio=request.getParameter("precio");
+	
+	  System.out.println("nombre "+nombre);
 	  
-	  System.out.println("precio "+precio);
+	  String precio = request.getParameter("precio");
 	  
-	  int precioVal=Integer.parseInt(request.getParameter("precio"));
-	  
-	  System.out.println("precioVal "+precioVal);
 
 	  String descripcion=request.getParameter("descripcion");
 	  
@@ -466,14 +463,8 @@ private void validarFormularioPro(HttpServletRequest request, HttpServletRespons
        	return;
        }
     
-    else if(precioVal <= 0 ) {
-       	System.out.println("¡Valor no admitido, por favor verificar!");
-       	out.print("false;msnpreciopro;¡Valor no admitido, por favor verificar!");
-	          	
-       	return;
-       }   
 
-    else if(precio == null || precio.isEmpty() || ud.validarNumeros(precio.trim()) == false) {
+    else if(precio == null || precio.isEmpty()) {
        	System.out.println("¡Valor no admitido, por favor verificar!");
        	out.print("false;msnpreciopro;¡Valor no admitido, por favor verificar!");
 	          	
