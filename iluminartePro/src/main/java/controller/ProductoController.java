@@ -438,14 +438,14 @@ private void validarFormularioPro(HttpServletRequest request, HttpServletRespons
 	
 
     if(categoria.equals("0")) {
-       	System.out.println("!No ha seleccionado alguna opcion!");
-       	out.print("false;msncategoriapro;!No ha seleccionado alguna opcion!");
+       	System.out.println("!Seleccione alguna opción!");
+       	out.print("false;msncategoriapro;!Seleccione alguna opción!");
        	return;
        }        
    
     else if(proveedor.equals("0")) {
-       	System.out.println("!No ha seleccionado alguna opcion!");
-       	out.print("false;msnproveedorpro;!No ha seleccionado alguna opcion!");
+       	System.out.println("!Seleccione alguna opción!");
+       	out.print("false;msnproveedorpro;!Seleccione alguna opción!");
 	          	
        	return;
        }

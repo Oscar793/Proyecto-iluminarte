@@ -13,7 +13,7 @@
 		<div class="card-body">
 
   
-		  <h1>Cambiar ContraseÃ±a</h1>
+		  <h1>Cambiar Contraseña</h1>
 		  
 		 <form method="post" action="UsuarioController?accion=changePassword" >
 		  	
@@ -30,23 +30,23 @@
 			  	</div>
 			  	
 			  	<div class="form-group">
-			  		<label for="passant">ContraseÃ±a Anterior</label>
-			  		<input type="password" class="form-control" name="passant" id="passant" placeholder="Ingrese la contraseÃ±a Anterior" onBlur="verifypass()"/>
+			  		<label for="passant">Contraseña Anterior</label>
+			  		<input type="password" class="form-control" name="passant" id="passant" placeholder="Ingrese la contraseña Anterior" onBlur="verifypass()"/>
 			  	</div>
 			  	
 			  	<div id="passantVal" class="text-danger"> </div>
 			  	 
 			  	
 			  	<div class="form-group">
-			  		<label for="passnew">ContraseÃ±a Nueva</label>
-			  		<input type="password" class="form-control" name="passnew" id="passnew" placeholder="Ingrese la contraseÃ±a Nueva" onBlur="verifypass()"/>
+			  		<label for="passnew">Contraseña Nueva</label>
+			  		<input type="password" class="form-control" name="passnew" id="passnew" placeholder="Ingrese la contraseña Nueva" onBlur="verifypass()"/>
 			  	</div>
 			  	
 			  	<div id="passnewVal" class="text-danger"> </div>
 			  	
 			  	<div class="form-group">
-			  		<label for="passnewrep">Validar ContraseÃ±a Nueva</label>
-			  		<input type="password" class="form-control" name="passnewrep" id="passnewrep" placeholder="Vuelva a Ingresar su contraseÃ±a Nueva" onBlur="verifypass()"/>
+			  		<label for="passnewrep">Validar Contraseña Nueva</label>
+			  		<input type="password" class="form-control" name="passnewrep" id="passnewrep" placeholder="Vuelva a Ingresar su contraseña Nueva" onBlur="verifypass()"/>
 			  	</div>
 			  	  
 			  	<div id="passnewrepVal" class="text-danger"> </div>		
@@ -55,7 +55,7 @@
 		
 			
 			<div>
-				<button type="submit" class="btn btn-success btn-sm" id="guardarContrasena" disabled="disabled" onclick="guardar()">Cambiar ContraseÃ±a</button>
+				<button type="submit" class="btn btn-success btn-sm" id="guardarContrasena" disabled="disabled" onclick="guardar()">Cambiar Contraseña</button>
 			</div>
 			
 			
